@@ -1,0 +1,24 @@
+{
+  "name": "흐히힉",
+  "version": "1.0.0",
+  "description": "그냥 진짜 할거 없어서 만든 프로젝트 ^^",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon --config nodemon.json",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "그냥 심심해서 하는 프로젝트"
+  ],
+  "author": "jonghwajoa",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "koa": "^2.11.0",
+    "nodemon": "^2.0.1"
+  },
+  "devDependencies": {
+    "ts-node": "^8.5.4",
+    "typescript": "^3.7.3"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "verbose": false,
+  "exec": "node src/app.js",
+  "ignore": [
+    "build"
+  ]
+}
