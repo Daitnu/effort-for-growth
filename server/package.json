@@ -2,10 +2,9 @@
   "name": "practice",
   "version": "1.0.0",
   "description": "그냥 진짜 할거 없어서 만든 프로젝트 ^^",
-  "main": "app.js",
+  "main": "src/app.ts",
   "scripts": {
-    "dev": "nodemon src/app.js --config",
-    "dev:watch": "tsc -w",
+    "dev": "nodemon --config -w",
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
