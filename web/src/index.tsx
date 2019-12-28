@@ -1,5 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import IndexPage from './pages';
+import Routing from './App';
 
-ReactDOM.render(<IndexPage />, document.getElementById('root'));
+ReactDOM.render(<Routing />, document.getElementById('root'));
