@@ -1,5 +1,6 @@
 import React from 'react';
+import LoginLayout from '../../components/Layout';
 
-const LoginPage: React.SFC = () => <div>로그인 페이지 입니다.</div>;
+const LoginPage: React.SFC = () => <LoginLayout />;
 
 export default LoginPage;
