@@ -1,18 +1,33 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-  entry: './src/index',
-  resolve: {
-    extensions: ['.js', '.jsx'],
+  entry: './src/index.tsx',
+  output: {
+    path: path.resolve(__dirname, 'dist/'),
+    publicPath: '/',
   },
+
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js', '.json'],
+  },
+
   module: {
     rules: [
       {
-        test: /\.(js?|ts?)$/,
-        loader: 'babel-loader',
+        test: /\.(ts|tsx)$/,
+        use: [
+          'babel-loader',
+          {
+            loader: 'ts-loader',
+            options: {
+              transpileOnly: true,
+            },
+          },
+        ],
         exclude: /node_modules/,
       },
     ],
@@ -45,5 +60,9 @@ module.exports = {
     },
   },
 
-  plugins: [new CleanWebpackPlugin(), new HtmlWebpackPlugin({ template: './public/index.html' })],
+  plugins: [
+    new CleanWebpackPlugin(),
+    new HtmlWebpackPlugin({ template: './public/index.html' }),
+    new ForkTsCheckerWebpackPlugin({ silent: true }),
+  ],
 };
