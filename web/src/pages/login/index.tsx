@@ -1,7 +1,2 @@
-import React from 'react';
-
-const LoginPage = () => {
-  return <div>로그인 페이지 입니다.</div>;
-};
-
+import LoginPage from './Login';
 export default LoginPage;

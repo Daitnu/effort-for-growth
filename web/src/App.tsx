@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import IndexPage from './pages/home';
-import LoginPage from './pages/login';
-import ErrorPage from './pages/error';
+import IndexPage from './pages/Index';
+import LoginPage from './pages/Login';
+import ErrorPage from './pages/Error';
 
 const PAGE_NOT_FOUND = '유효하지 않은 페이지 입니다.';
 const App = () => (
