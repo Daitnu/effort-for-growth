@@ -7,7 +7,8 @@ module.exports = {
   mode: 'development',
   entry: './src/index.tsx',
   output: {
-    path: path.resolve(__dirname, 'dist/'),
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
   },
 
@@ -30,12 +31,14 @@ module.exports = {
         ],
         exclude: /node_modules/,
       },
+      {
+        test: /\.(png|jpe?g|gif)$/,
+        loader: 'file-loader',
+        options: {
+          publicPath: 'dist/',
+        },
+      },
     ],
-  },
-
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
   },
 
   devServer: {
@@ -63,7 +66,7 @@ module.exports = {
 
   plugins: [
     new CleanWebpackPlugin(),
-    new HtmlWebpackPlugin({ template: './public/index.html' }),
+    new HtmlWebpackPlugin({ template: 'public/index.html' }),
     new ForkTsCheckerWebpackPlugin({ silent: true }),
   ],
 };
