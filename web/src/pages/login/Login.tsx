@@ -1,6 +1,19 @@
 import React from 'react';
-import LoginLayout from '../../components/Layout';
+import * as S from './styled';
+import * as GS from '../../components/GlobalStyle';
+import LoginForm from '../../components/GlobalStyle/Forms/Login';
 
-const LoginPage: React.SFC = () => <LoginLayout />;
+const LoginPage: React.SFC = () => {
+  return (
+    <GS.FullScreenWrap>
+      <S.CenterWrap>
+        <S.LoginFormArea>
+          <LoginForm></LoginForm>
+        </S.LoginFormArea>
+        <S.BackgoundImage>오른쪽</S.BackgoundImage>
+      </S.CenterWrap>
+    </GS.FullScreenWrap>
+  );
+};
 
 export default LoginPage;
