@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import * as S from './styled';
+import { KEY_CODE } from '../../../../constants';
 
 const LoginForm = () => {
   const [user, setUser] = useState({ id: '', pw: '' });
 
-  const handleInputChange = ({ target }) => {
+  const handleInputBlur = ({ target }) => {
     const changeTarget: string = target.id;
     const changeValue: string = target.value;
     setUser({
@@ -13,35 +14,42 @@ const LoginForm = () => {
     });
   };
 
+  const handlePasswordKeyDown = event => {
+    if (event.keyCode !== KEY_CODE.ENTER) return;
+
+    // TODO : validate & submit
+  };
+
   return (
     <div>
-      <S.FlexRow>
+      <S.FormItem>
         <label htmlFor='userId'>아이디</label>
         <input
           type='text'
-          onChange={handleInputChange}
-          value={user.id}
           id='id'
           placeholder='아이디'
           maxLength={20}
+          autoComplete='off'
+          onBlur={handleInputBlur}
         />
-      </S.FlexRow>
-      <S.FlexRow>
+      </S.FormItem>
+      <S.FormItem>
         <label htmlFor='userPw'>비밀번호</label>
         <input
-          type='text'
-          onChange={handleInputChange}
-          value={user.pw}
+          type='password'
           id='pw'
           placeholder='비밀번호'
+          autoComplete='off'
           maxLength={20}
+          onBlur={handleInputBlur}
+          onKeyDown={handlePasswordKeyDown}
         />
-      </S.FlexRow>
-      <S.FlexRow display='inline'>
+      </S.FormItem>
+      <S.FormItem isDisplay='inline'>
         <label htmlFor='autoLogin'>자동로그인</label>
         <input type='checkbox' id='autoLogin' />
-        <button>로그인</button>
-      </S.FlexRow>
+        <button type='submit'>로그인</button>
+      </S.FormItem>
     </div>
   );
 };
