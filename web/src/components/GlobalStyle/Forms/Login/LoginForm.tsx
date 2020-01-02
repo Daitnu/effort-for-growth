@@ -1,23 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import * as S from './styled';
 import { KEY_CODE } from '../../../../constants';
 
-const LoginForm = () => {
-  const [user, setUser] = useState({ id: '', pw: '' });
+interface IUser {
+  id: string;
+  pw: string;
+}
 
-  const handleInputBlur = ({ target }) => {
-    const changeTarget: string = target.id;
-    const changeValue: string = target.value;
+const LoginForm = () => {
+  const [user, setUser] = useState<IUser>({ id: '', pw: '' });
+
+  const handleInputChange = ({ target }) => {
+    const changedField: string = target.id;
+    const changedValue: string = target.value;
     setUser({
       ...user,
-      [changeTarget]: changeValue,
+      [changedField]: changedValue,
     });
   };
 
-  const handlePasswordKeyDown = event => {
-    if (event.keyCode !== KEY_CODE.ENTER) return;
+  const handlePasswordKeyDown = ({ keyCode }) => {
+    if (keyCode !== KEY_CODE.ENTER) return;
+    handleSubmitClick();
+  };
 
-    // TODO : validate & submit
+  const handleSubmitClick = () => {
+    console.log(user);
+    console.log('submit click');
   };
 
   return (
@@ -30,7 +39,7 @@ const LoginForm = () => {
           placeholder='아이디'
           maxLength={20}
           autoComplete='off'
-          onBlur={handleInputBlur}
+          onChange={handleInputChange}
         />
       </S.FormItem>
       <S.FormItem>
@@ -41,14 +50,16 @@ const LoginForm = () => {
           placeholder='비밀번호'
           autoComplete='off'
           maxLength={20}
-          onBlur={handleInputBlur}
+          onChange={handleInputChange}
           onKeyDown={handlePasswordKeyDown}
         />
       </S.FormItem>
       <S.FormItem isDisplay='inline'>
         <label htmlFor='autoLogin'>자동로그인</label>
         <input type='checkbox' id='autoLogin' />
-        <button type='submit'>로그인</button>
+        <button type='submit' onClick={handleSubmitClick}>
+          로그인
+        </button>
       </S.FormItem>
     </div>
   );
