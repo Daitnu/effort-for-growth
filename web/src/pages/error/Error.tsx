@@ -4,6 +4,4 @@ interface Props {
   message: string;
 }
 
-const ErrorPage: React.SFC<Props> = ({ message }) => <div>{message}</div>;
-
-export default ErrorPage;
+export const ErrorPage: React.SFC<Props> = ({ message }) => <div>{message}</div>;

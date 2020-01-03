@@ -1,9 +1,9 @@
 import React from 'react';
 import * as S from './styled';
 import * as GS from '../../components/GlobalStyle';
-import LoginForm from '../../components/GlobalStyle/Forms/Login';
+import { LoginForm } from '../../components/GlobalStyle/Forms/Login';
 
-const LoginPage: React.SFC = () => {
+export const LoginPage: React.SFC = () => {
   return (
     <GS.FullScreenWrap>
       <S.CenterWrap>
@@ -15,5 +15,3 @@ const LoginPage: React.SFC = () => {
     </GS.FullScreenWrap>
   );
 };
-
-export default LoginPage;

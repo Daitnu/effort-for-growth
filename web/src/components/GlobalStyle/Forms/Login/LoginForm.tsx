@@ -7,7 +7,7 @@ interface IUser {
   pw: string;
 }
 
-const LoginForm = () => {
+export const LoginForm = () => {
   const [user, setUser] = useState<IUser>({ id: '', pw: '' });
 
   const handleInputChange = ({ target }) => {
@@ -64,5 +64,3 @@ const LoginForm = () => {
     </div>
   );
 };
-
-export default LoginForm;

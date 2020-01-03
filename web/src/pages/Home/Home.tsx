@@ -11,12 +11,10 @@ const centerWrapOptions: centerWrapOptions = {
   height: '90%',
 };
 
-const IndexPage: React.SFC = () => {
+export const HomePage: React.SFC = () => {
   return (
     <GS.FullScreenWrap>
       <GS.CenterWrap {...centerWrapOptions}></GS.CenterWrap>
     </GS.FullScreenWrap>
   );
 };
-
-export default IndexPage;
