@@ -14,7 +14,7 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const PAGE_NOT_FOUND: string = '유효하지 않은 페이지 입니다.';
-const App = () => (
+const AppRouter = () => (
   <>
     <GlobalStyle />
     <Router>
@@ -27,4 +27,4 @@ const App = () => (
   </>
 );
 
-export default App;
+export default AppRouter;
