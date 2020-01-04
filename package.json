@@ -1,0 +1,18 @@
+{
+  "name": "effort",
+  "version": "0.0.0",
+  "description": "a project for growth",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Daitnu/effort-for-growth.git"
+  },
+  "keywords": [],
+  "author": "jonghwajoa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Daitnu/effort-for-growth/issues"
+  },
+  "homepage": "https://github.com/Daitnu/effort-for-growth#readme"
+}
