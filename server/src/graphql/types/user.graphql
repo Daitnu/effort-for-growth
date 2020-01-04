@@ -1,0 +1,10 @@
+type User {
+  no: Int
+  id: String
+  pw: String
+}
+
+type Query {
+  user: User
+  users: [User]
+}
