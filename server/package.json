@@ -1,16 +1,14 @@
 {
-  "name": "practice",
-  "version": "1.0.0",
-  "description": "그냥 진짜 할거 없어서 만든 프로젝트 ^^",
+  "name": "effort",
+  "version": "0.0.0",
+  "description": "a project for growth",
   "main": "src/app.ts",
   "scripts": {
     "dev": "nodemon --config -w",
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [
-    "그냥 심심해서 하는 프로젝트"
-  ],
+  "keywords": [],
   "author": "jonghwajoa",
   "license": "MIT",
   "dependencies": {
