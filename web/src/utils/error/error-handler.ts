@@ -1,9 +1,9 @@
-interface error {
+interface Ierror {
   status: number;
   message: string;
 }
 
-const handleErrorStatus = ({ status, message }: error): string => {
+const handleErrorStatus = ({ status, message }: Ierror): string => {
   let returnValue: string = '';
 
   if (status === 401) {
