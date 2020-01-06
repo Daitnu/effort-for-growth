@@ -7,7 +7,7 @@ const API_SERVER: string = 'localhost';
 interface Irequest {
   url: string;
   body?: object;
-  options: object;
+  options?: object;
 }
 
 const execute = async (fn: Function) => {
