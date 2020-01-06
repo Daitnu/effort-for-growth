@@ -1,11 +1,5 @@
 class HTTPResponse {
-  private readonly isError: boolean;
-  private readonly data: object;
-
-  constructor(isError, data) {
-    this.isError = isError;
-    this.data = data;
-  }
+  constructor(private readonly isError: boolean, private readonly data: object) {}
 
   getIsError(): boolean {
     return this.isError;
