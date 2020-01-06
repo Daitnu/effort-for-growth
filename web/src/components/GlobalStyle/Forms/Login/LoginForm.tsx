@@ -32,32 +32,32 @@ export const LoginForm = () => {
   return (
     <div>
       <S.FormItem>
-        <label htmlFor='userId'>아이디</label>
+        <label htmlFor="userId">아이디</label>
         <input
-          type='text'
-          id='id'
-          placeholder='아이디'
+          type="text"
+          id="id"
+          placeholder="아이디"
           maxLength={20}
-          autoComplete='off'
+          autoComplete="off"
           onChange={handleInputChange}
         />
       </S.FormItem>
       <S.FormItem>
-        <label htmlFor='userPw'>비밀번호</label>
+        <label htmlFor="userPw">비밀번호</label>
         <input
-          type='password'
-          id='pw'
-          placeholder='비밀번호'
-          autoComplete='off'
+          type="password"
+          id="pw"
+          placeholder="비밀번호"
+          autoComplete="off"
           maxLength={20}
           onChange={handleInputChange}
           onKeyDown={handlePasswordKeyDown}
         />
       </S.FormItem>
-      <S.FormItem isDisplay='inline'>
-        <label htmlFor='autoLogin'>자동로그인</label>
-        <input type='checkbox' id='autoLogin' />
-        <button type='submit' onClick={handleSubmitClick}>
+      <S.FormItem isDisplay="inline">
+        <label htmlFor="autoLogin">자동로그인</label>
+        <input type="checkbox" id="autoLogin" />
+        <button type="submit" onClick={handleSubmitClick}>
           로그인
         </button>
       </S.FormItem>
