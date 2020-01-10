@@ -1,6 +1,3 @@
-import dotenv from "dotenv";
-dotenv.config();
-
 const { DB_USERNAME, DB_PW, DB_SCHEMA, DB_HOST, DB_PORT } = process.env;
 
 export = {

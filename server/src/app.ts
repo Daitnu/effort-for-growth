@@ -1,13 +1,13 @@
+import dotenv from "dotenv";
+dotenv.config();
+
 import Koa from "koa";
 import Router from "koa-router";
-import dotenv from "dotenv";
 import "reflect-metadata";
 import { createConnection } from "typeorm";
 
 import server from "./graphql";
 import api from "./api";
-
-dotenv.config();
 
 const { PORT } = process.env;
 const app = new Koa();
