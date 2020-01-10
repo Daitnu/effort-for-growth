@@ -7,7 +7,14 @@
     "esModuleInterop": true /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */,
     "forceConsistentCasingInFileNames": true /* Disallow inconsistently-cased references to the same file. */,
     "emitDecoratorMetadata": true,
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "allowUnreachableCode": false, // 도달 불가능한 코드에 대한 허용 여부.
+    "allowUnusedLabels": false, // 사용하지 않는 라벨에 대한 허용 여부
+    "noFallthroughCasesInSwitch": true, // 잘못 적혔다고 판단되는 switch문에 대한 에러 발생
+    "noImplicitReturns": true, // 함수의 모든 경로가 값을 반환하지 않으면 에러 발생
+    "charset": "utf8", // 입력파일의 문자집합 형식
+    "removeComments": true, // 주석 삭제
+    "newLine": "lf"
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist"]
