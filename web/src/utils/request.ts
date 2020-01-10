@@ -1,11 +1,17 @@
-import axios from 'axios';
+import axios, { AxiosInstance } from 'axios';
 import { errorParser } from './error/error-parser';
 import HTTPResponse from './http-response';
 
-const API_SERVER = 'localhost';
+const API_SERVER: string = 'localhost';
 
-const execute = async fn => {
-  let response;
+interface Irequest {
+  url: string;
+  body?: object;
+  options?: object;
+}
+
+const execute = async (fn: Function) => {
+  let response: HTTPResponse;
 
   try {
     const { data } = await fn();
@@ -19,7 +25,7 @@ const execute = async fn => {
 
 axios.defaults.withCredentials = true;
 
-const server = axios.create({
+const server: AxiosInstance = axios.create({
   baseURL: API_SERVER,
   headers: {
     'Content-Type': 'application/json',
@@ -28,31 +34,31 @@ const server = axios.create({
 });
 
 export default {
-  async get(url, options = {}) {
+  async get({ url, options }: Irequest) {
     const fn = () => server.get(url, { ...options });
     const response = await execute(fn);
     return response;
   },
 
-  async post(url, body, options = {}) {
+  async post({ url, body, options }: Irequest) {
     const fn = () => server.post(url, body, { ...options });
     const response = await execute(fn);
     return response;
   },
 
-  async put(url, body, options = {}) {
+  async put({ url, body, options = {} }: Irequest) {
     const fn = () => server.put(url, body, { ...options });
     const response = await execute(fn);
     return response;
   },
 
-  async delete(url, body, options = {}) {
+  async delete({ url, body, options = {} }: Irequest) {
     const fn = () => server.delete(url, { data: body, headers: { ...options } });
     const response = await execute(fn);
     return response;
   },
 
-  async patch(url, body, options = {}) {
+  async patch({ url, body, options = {} }: Irequest) {
     const fn = () => server.patch(url, body, { ...options });
     const response = await execute(fn);
     return response;

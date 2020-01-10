@@ -1,12 +1,12 @@
 import React from 'react';
 import * as GS from '../../components/GlobalStyle';
 
-interface centerWrapOptions {
+interface IcenterWrapOptions {
   width: string;
   height: string;
 }
 
-const centerWrapOptions: centerWrapOptions = {
+const centerWrapOptions: IcenterWrapOptions = {
   width: '90%',
   height: '90%',
 };
@@ -14,7 +14,7 @@ const centerWrapOptions: centerWrapOptions = {
 export const HomePage: React.SFC = () => {
   return (
     <GS.FullScreenWrap>
-      <GS.CenterWrap {...centerWrapOptions}></GS.CenterWrap>
+      <GS.CenterWrap {...centerWrapOptions} />
     </GS.FullScreenWrap>
   );
 };
