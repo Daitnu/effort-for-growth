@@ -1,4 +1,5 @@
 import * as accountService from "../../services/account";
+import { ILogin, ISignUp, IResponseSignup } from "../../@types/account";
 
 const users = [
   {
@@ -18,23 +19,30 @@ const users = [
   }
 ];
 
+// TODO : try catch를 wrap으로 감싸기.. 혹은 더 이쁜방법 찾기
 const resolvers = {
   Query: {
     user: (_, { no }) => users[no],
     users: () => users
   },
   Mutation: {
-    login: (_, { id, pw }) => {
+    login: async (_, { id, pw }: ILogin): Promise<ILogin> => {
       try {
-        accountService.login({ id, pw });
+        const values = await accountService.login({ id, pw });
+        return values;
       } catch (error) {
         return error;
       }
-      return {
-        no: 1,
-        id,
-        pw
-      };
+    },
+
+    signUp: async (_, { id, pw, name }: ISignUp) => {
+      try {
+        const values = await accountService.signUp({ id, pw, name });
+        delete values.pw;
+        return values;
+      } catch (error) {
+        return error;
+      }
     }
   }
 };
