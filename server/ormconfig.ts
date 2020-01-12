@@ -9,5 +9,5 @@ export = {
   database: DB_SCHEMA,
   synchronize: true,
   logging: false,
-  entities: ["src/models/*.ts"]
+  entities: ["src/entity/index.ts"]
 };
