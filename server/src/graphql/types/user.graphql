@@ -5,6 +5,10 @@ type User {
 }
 
 type Query {
-  user: User
+  user(no: Int): User
   users: [User]
+}
+
+type Mutation {
+  login(id: String!, pw: String!): User!
 }

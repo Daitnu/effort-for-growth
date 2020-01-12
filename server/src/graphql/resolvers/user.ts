@@ -1,3 +1,5 @@
+import * as accountService from "../../services/account";
+
 const users = [
   {
     no: 1,
@@ -18,8 +20,22 @@ const users = [
 
 const resolvers = {
   Query: {
-    user: () => users[0],
+    user: (_, { no }) => users[no],
     users: () => users
+  },
+  Mutation: {
+    login: (_, { id, pw }) => {
+      try {
+        accountService.login({ id, pw });
+      } catch (error) {
+        return error;
+      }
+      return {
+        no: 1,
+        id,
+        pw
+      };
+    }
   }
 };
 
