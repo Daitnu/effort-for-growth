@@ -3,9 +3,10 @@ import { getRepository } from "typeorm";
 import { User } from "../entity";
 import { ILogin, ISignUp } from "../@types/account";
 
+const userRepo = getRepository(User);
+
 // TODO : VALIDATION
 export const login = async ({ id, pw }: ILogin): Promise<ILogin> => {
-  const userRepo = getRepository(User);
   const user: ILogin = await userRepo.findOne({ id });
   if (!user) {
     throw "존재하지 않는 유저입니다";
@@ -21,7 +22,6 @@ export const login = async ({ id, pw }: ILogin): Promise<ILogin> => {
 };
 
 export const signUp = async ({ id, pw, name }: ISignUp): Promise<ISignUp> => {
-  const userRepo = getRepository(User);
   const salt = await bcrypt.genSalt(10);
   const hashedPw = await bcrypt.hash(pw, salt);
   const newUser = new User();
