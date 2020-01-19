@@ -1,8 +1,4 @@
-interface IErrorCode {
-  status: Number;
-  message: string;
-  code: string;
-}
+import { IErrorCode } from "../../@types/error-code";
 
 export class ErrorCode {
   private readonly status;
