@@ -30,7 +30,7 @@ export class ErrorCode {
 
 const $ = ErrorCode.createErrorCode;
 
-export default {
+export const ERROR_CODE = {
   PAGE_NOT_FOUND: $(404, "PAGE NOT FOUND", "COMMON001"),
   INVALID_INPUT_VALUE: $(400, "INVALID INPUT VALUE", "COMMON002"),
   SESSION_HAS_EXPIRED: $(401, "세션이 만료되었습니다.", "COMMON003"),
