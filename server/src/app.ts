@@ -6,14 +6,20 @@ import "reflect-metadata";
 import { createConnection } from "typeorm";
 import { ApolloServer } from "apollo-server-koa";
 
-const { PORT } = process.env;
+const { PORT, NODE_ENV } = process.env;
+const PRODUCTION = "production";
+const isNotProductionMode = !(PRODUCTION === NODE_ENV);
 const app = new Koa();
 
 const startServer = async () => {
   await createConnection();
 
   const { typeDefs, resolvers } = await import("./graphql");
-  const server = new ApolloServer({ typeDefs, resolvers });
+  const server = new ApolloServer({
+    typeDefs,
+    resolvers,
+    debug: isNotProductionMode
+  });
   console.log("graphql server start");
 
   server.applyMiddleware({ app });
