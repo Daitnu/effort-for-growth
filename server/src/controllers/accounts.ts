@@ -6,24 +6,20 @@ import {
   ApolloError,
   ValidationError
 } from "apollo-server";
-import { ErrorField, ErrorResponse, ERROR_CODE } from "../libraries/exception";
+import { checkLoginParams } from "../libraries/validator/accounts";
 
 const login = async (_, { id, pw }: ILogin): Promise<ILogin> => {
-  if (id.length < 100) {
-    const errorResponse = new ErrorResponse(ERROR_CODE.INVALID_INPUT_VALUE);
-    const errorCode = errorResponse.getErrorCode();
-
-    throw new UserInputError(errorCode.getMessage(), {
-      code: errorCode.getCode(),
-      status: errorCode.getStatus()
-    });
+  try {
+    checkLoginParams({ id, pw });
+  } catch (error) {
+    throw new ValidationError(error);
   }
 
   try {
     const values = await accountService.login({ id, pw });
     return values;
   } catch (error) {
-    return error;
+    throw new ApolloError(error);
   }
 };
 
