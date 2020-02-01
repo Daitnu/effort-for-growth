@@ -1,13 +1,13 @@
+type Query {
+  user(no: Int): User
+  users: [User]
+}
+
 type User {
   no: Int
   id: String!
   pw: String!
   name: String
-}
-
-type Query {
-  user(no: Int): User
-  users: [User]
 }
 
 type Mutation {
