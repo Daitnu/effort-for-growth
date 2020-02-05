@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import * as S from './styled';
+import * as GS from '../../../GlobalStyle';
 import { KEY_CODE } from '../../../../constants';
 
 interface IUser {
@@ -32,8 +33,8 @@ export const LoginForm = () => {
   return (
     <div>
       <S.FormItem>
-        <label htmlFor="userId">아이디</label>
-        <input
+        <label htmlFor="id">아이디</label>
+        <S.FormInput
           type="text"
           id="id"
           placeholder="아이디"
@@ -43,8 +44,8 @@ export const LoginForm = () => {
         />
       </S.FormItem>
       <S.FormItem>
-        <label htmlFor="userPw">비밀번호</label>
-        <input
+        <label htmlFor="pw">비밀번호</label>
+        <S.FormInput
           type="password"
           id="pw"
           placeholder="비밀번호"
@@ -55,11 +56,21 @@ export const LoginForm = () => {
         />
       </S.FormItem>
       <S.FormItem isDisplay="inline">
-        <label htmlFor="autoLogin">자동로그인</label>
-        <input type="checkbox" id="autoLogin" />
-        <button type="submit" onClick={handleSubmitClick}>
-          로그인
-        </button>
+        <GS.SpaceBetweenWithFullWidth>
+          <GS.AlignCenter>
+            <label htmlFor="autoLogin">자동로그인</label>
+            <input type="checkbox" id="autoLogin" />
+          </GS.AlignCenter>
+          <button type="submit" onClick={handleSubmitClick}>
+            로그인
+          </button>
+        </GS.SpaceBetweenWithFullWidth>
+      </S.FormItem>
+      <S.FormItem>
+        <GS.SpaceBetweenWithFullWidth>
+          <div>Register now</div>
+          <div>Forgot password?</div>
+        </GS.SpaceBetweenWithFullWidth>
       </S.FormItem>
     </div>
   );

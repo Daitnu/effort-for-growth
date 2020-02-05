@@ -33,3 +33,17 @@ export const FlexRow = styled.div`
   display: flex;
   flex-direction: row;
 `;
+
+export const FullWidth = styled.div`
+  width: 100%;
+`;
+
+export const SpaceBetweenWithFullWidth = styled(FullWidth)`
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const AlignCenter = styled.div`
+  display: flex;
+  align-items: center;
+`;
