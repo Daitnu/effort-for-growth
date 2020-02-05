@@ -14,5 +14,6 @@
   "bugs": {
     "url": "https://github.com/Daitnu/effort-for-growth/issues"
   },
-  "homepage": "https://github.com/Daitnu/effort-for-growth#readme"
+  "homepage": "https://github.com/Daitnu/effort-for-growth#readme",
+  "dependencies": {}
 }
