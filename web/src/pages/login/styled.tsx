@@ -23,12 +23,9 @@ export const LoginFormArea = styled.div`
   ${sharedFlexItemStyle}
 `;
 
-export const BackgoundImage = styled.div`
+export const BackgoundImage = styled(GS.BackgroundImageStyle)`
   ${sharedFlexItemStyle}
   background-image: url(${backgroundImg});
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
 `;
 
 export const CenterWrap = styled(GS.CenterWrap)`

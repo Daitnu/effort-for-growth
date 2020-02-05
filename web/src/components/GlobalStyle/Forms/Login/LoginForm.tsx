@@ -32,8 +32,10 @@ export const LoginForm = () => {
 
   return (
     <div>
-      <S.FormItem>
-        <label htmlFor="id">아이디</label>
+      <S.FormItemWithIcon>
+        <S.IconWrapper>
+          <S.UserIcon />
+        </S.IconWrapper>
         <S.FormInput
           type="text"
           id="id"
@@ -42,9 +44,11 @@ export const LoginForm = () => {
           autoComplete="off"
           onChange={handleInputChange}
         />
-      </S.FormItem>
-      <S.FormItem>
-        <label htmlFor="pw">비밀번호</label>
+      </S.FormItemWithIcon>
+      <S.FormItemWithIcon>
+        <S.IconWrapper>
+          <S.PasswordIcon />
+        </S.IconWrapper>
         <S.FormInput
           type="password"
           id="pw"
@@ -54,12 +58,12 @@ export const LoginForm = () => {
           onChange={handleInputChange}
           onKeyDown={handlePasswordKeyDown}
         />
-      </S.FormItem>
+      </S.FormItemWithIcon>
       <S.FormItem isDisplay="inline">
         <GS.SpaceBetweenWithFullWidth>
           <GS.AlignCenter>
-            <label htmlFor="autoLogin">자동로그인</label>
             <input type="checkbox" id="autoLogin" />
+            <label htmlFor="autoLogin">자동 로그인</label>
           </GS.AlignCenter>
           <button type="submit" onClick={handleSubmitClick}>
             로그인
