@@ -8,7 +8,6 @@ export const FullScreenWrap = styled.div`
   height: 100vh;
   width: 100%;
   background: ${props => `url(${props.bg})` || 'red'};
-  background-color: #f8f7f7;
 `;
 
 export const CenterWrap = styled.div`
@@ -46,4 +45,16 @@ export const SpaceBetweenWithFullWidth = styled(FullWidth)`
 export const AlignCenter = styled.div`
   display: flex;
   align-items: center;
+`;
+
+export const FlexJustifyAlignCenter = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const BackgroundImageStyle = styled.div`
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
 `;
