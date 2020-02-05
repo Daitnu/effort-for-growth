@@ -8,6 +8,7 @@ export const FullScreenWrap = styled.div`
   height: 100vh;
   width: 100%;
   background: ${props => `url(${props.bg})` || 'red'};
+  background-color: #f8f7f7;
 `;
 
 export const CenterWrap = styled.div`

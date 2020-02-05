@@ -15,7 +15,6 @@ const sharedFlexItemStyle = css`
   width: 50%;
   height: 100%;
   display: flex;
-  border: 1px solid red;
   justify-content: center;
   align-items: center;
 `;
@@ -33,11 +32,10 @@ export const BackgoundImage = styled.div`
 `;
 
 export const CenterWrap = styled(GS.CenterWrap)`
-  width: 750px;
-  height: 700px;
+  width: 760px;
+  height: 600px;
   flex-direction: row;
-  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.15);
-  border: 3px solid violet;
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.15);
 
   @media (max-width: ${BREAK_POINT_MOBILE}) {
     box-shadow: none;
