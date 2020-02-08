@@ -8,9 +8,9 @@ export const LoginPage: React.SFC = () => {
     <GS.FullScreenWrap>
       <S.CenterWrap>
         <S.LoginFormArea>
-          <LoginForm></LoginForm>
+          <LoginForm />
         </S.LoginFormArea>
-        <S.BackgoundImage>오른쪽</S.BackgoundImage>
+        <S.BackgoundImage />
       </S.CenterWrap>
     </GS.FullScreenWrap>
   );

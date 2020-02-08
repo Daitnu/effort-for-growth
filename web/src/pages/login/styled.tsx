@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 import * as GS from '../../components/GlobalStyle';
 import { BREAK_POINT_MOBILE } from '../../constants';
+import backgroundImg from '../../../public/space.jpg';
 
 export const ImageInputCard = styled.div`
   width: ${props => props.width};
@@ -11,24 +12,27 @@ export const ImageInputCard = styled.div`
 `;
 
 const sharedFlexItemStyle = css`
-  flex: 1 1 auto;
+  width: 50%;
+  height: 100%;
   display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const LoginFormArea = styled.div`
   ${sharedFlexItemStyle}
 `;
 
-export const BackgoundImage = styled.div`
+export const BackgoundImage = styled(GS.BackgroundImageStyle)`
   ${sharedFlexItemStyle}
+  background-image: url(${backgroundImg});
 `;
 
 export const CenterWrap = styled(GS.CenterWrap)`
-  max-width: 1080px;
-  max-height: 700px;
+  width: 760px;
+  height: 600px;
   flex-direction: row;
-  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.15);
-  border: 3px solid violet;
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.15);
 
   @media (max-width: ${BREAK_POINT_MOBILE}) {
     box-shadow: none;

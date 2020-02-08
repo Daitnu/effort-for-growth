@@ -23,7 +23,7 @@ const startServer = async () => {
   console.log("graphql server start");
 
   server.applyMiddleware({ app });
-  await app.listen({ port: PORT });
+  app.listen({ port: PORT });
   console.log(`🚀 Server ready at ${server.graphqlPath}`);
 };
 

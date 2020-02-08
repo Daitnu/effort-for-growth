@@ -1,4 +1,5 @@
 import * as ctrl from "../../controllers";
+import { Iresolvers } from "../../@types/resolvers";
 
 const users = [
   {
@@ -18,7 +19,7 @@ const users = [
   }
 ];
 
-const resolvers = {
+const resolvers: Iresolvers = {
   Query: {
     user: (_, { no }) => users[no],
     users: () => users

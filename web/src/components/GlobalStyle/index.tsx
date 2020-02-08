@@ -32,3 +32,29 @@ export const FlexRow = styled.div`
   display: flex;
   flex-direction: row;
 `;
+
+export const FullWidth = styled.div`
+  width: 100%;
+`;
+
+export const SpaceBetweenWithFullWidth = styled(FullWidth)`
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const AlignCenter = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+export const FlexJustifyAlignCenter = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const BackgroundImageStyle = styled.div`
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+`;
