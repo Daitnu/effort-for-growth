@@ -9,13 +9,9 @@ const login = async (_, { id, pw }: ILogin): Promise<ILogin> => {
 };
 
 const signUp = async (_, { id, pw, name }: ISignUp) => {
-  try {
-    const values = await accountService.signUp({ id, pw, name });
-    delete values.pw;
-    return values;
-  } catch (error) {
-    return error;
-  }
+  const values = await accountService.signUp({ id, pw, name });
+  delete values.pw;
+  return values;
 };
 
 export const Accounts = { login, signUp };
