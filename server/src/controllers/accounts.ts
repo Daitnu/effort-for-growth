@@ -1,18 +1,15 @@
 import { ILogin, ISignUp, IResponseSignup } from "../@types/account";
 import * as accountService from "../services/account";
-import {
-  UserInputError,
-  SyntaxError,
-  ApolloError,
-  ValidationError
-} from "apollo-server";
+import { UserInputError, ApolloError, ValidationError } from "apollo-server";
 import { checkLoginParams } from "../libraries/validator/accounts";
 
 const login = async (_, { id, pw }: ILogin): Promise<ILogin> => {
   try {
     checkLoginParams({ id, pw });
   } catch (error) {
-    throw new ValidationError(error);
+    throw new UserInputError("INVALID INPUT VALUE", {
+      error
+    });
   }
 
   try {
