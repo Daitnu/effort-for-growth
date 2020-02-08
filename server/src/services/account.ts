@@ -2,6 +2,7 @@ import bcrypt from "bcryptjs";
 import { getRepository } from "typeorm";
 import { User } from "../entity";
 import { ILogin, ISignUp } from "../@types/account";
+import { ValidationError } from "apollo-server";
 
 const userRepo = getRepository(User);
 
@@ -15,7 +16,7 @@ export const login = async ({ id, pw }: ILogin): Promise<ILogin> => {
   const { pw: hashedPw } = user;
   const isSamePassword: boolean = await bcrypt.compare(pw, hashedPw);
   if (!isSamePassword) {
-    throw "비밀번호 일치안함.";
+    throw new ValidationError("비밀번호 일치안함.");
   }
 
   return user;
