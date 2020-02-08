@@ -6,18 +6,23 @@ import { ValidationError } from "apollo-server";
 
 const userRepo = getRepository(User);
 
-// TODO : VALIDATION
 export const login = async ({ id, pw }: ILogin): Promise<ILogin> => {
   const user: ILogin = await userRepo.findOne({ id });
   if (!user) {
-    throw "존재하지 않는 유저입니다";
+    throw new ValidationError(
+      "가입하지 않은 아이디이거나, 잘못된 비밀번호입니다."
+    );
   }
 
   const { pw: hashedPw } = user;
-  const isSamePassword: boolean = await bcrypt.compare(pw, hashedPw);
-  if (!isSamePassword) {
-    throw new ValidationError("비밀번호 일치안함.");
+  const isEqualPassword: boolean = await bcrypt.compare(pw, hashedPw);
+  if (!isEqualPassword) {
+    throw new ValidationError(
+      "가입하지 않은 아이디이거나, 잘못된 비밀번호입니다."
+    );
   }
+
+  //TODO : JWT 토큰 발급
 
   return user;
 };
