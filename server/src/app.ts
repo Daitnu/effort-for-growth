@@ -8,16 +8,16 @@ import { ApolloServer } from "apollo-server-koa";
 
 const { PORT, NODE_ENV } = process.env;
 const PRODUCTION = "production";
-const isNotProductionMode = !(PRODUCTION === NODE_ENV);
+const isNotProductionMode = PRODUCTION !== NODE_ENV;
 const app = new Koa();
 
 const startServer = async () => {
   await createConnection();
-
-  const { typeDefs, resolvers } = await import("./graphql");
+  const { typeDefs, resolvers, formatError } = await import("./graphql");
   const server = new ApolloServer({
     typeDefs,
     resolvers,
+    formatError,
     debug: isNotProductionMode
   });
   console.log("graphql server start");
