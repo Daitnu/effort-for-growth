@@ -18,19 +18,10 @@ const useFetch = (url: string) => {
       setFetchingData(initialValues);
 
       const response: HTTPResponse = await request.get({ url });
-      if (response.getIsError()) {
-        setFetchingData({
-          isLoading: false,
-          error: response.getIsError(),
-          data: response.getData(),
-        });
-      } else {
-        setFetchingData({
-          isLoading: false,
-          error: response.getIsError(),
-          data: response.getData(),
-        });
-      }
+      const isError = response.getIsError();
+      const data = response.getData();
+
+      setFetchingData({ isLoading: false, error: isError, data });
     };
 
     fetchInitData();

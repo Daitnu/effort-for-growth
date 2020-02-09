@@ -5,7 +5,7 @@ class HTTPResponse {
     return this.isError;
   }
 
-  getData(): object {
+  getData(): object | null {
     return this.data;
   }
 }
