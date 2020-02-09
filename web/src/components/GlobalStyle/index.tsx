@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { BREAK_POINT_MOBILE } from '../../constants';
+import bg from '../../assets/back.jpg';
 
 export const FullScreenWrap = styled.div`
   overflow: hidden;
@@ -7,7 +8,7 @@ export const FullScreenWrap = styled.div`
   box-sizing: border-box;
   height: 100vh;
   width: 100%;
-  background: ${props => `url(${props.bg})` || 'red'};
+  background: url(${bg});
 `;
 
 export const CenterWrap = styled.div`
@@ -22,9 +23,11 @@ export const CenterWrap = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  background: white;
   @media (max-width: ${BREAK_POINT_MOBILE}) {
     width: 100%;
     height: 100%;
+    background: none;
   }
 `;
 
