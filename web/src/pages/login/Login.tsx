@@ -2,10 +2,11 @@ import React from 'react';
 import * as S from './styled';
 import * as GS from '../../components/GlobalStyle';
 import { LoginForm } from '../../components/GlobalStyle/Forms/Login';
+import backgoundImage from '../../assets/back.jpg';
 
 export const LoginPage: React.SFC = () => {
   return (
-    <GS.FullScreenWrap>
+    <GS.FullScreenWrap bg={backgoundImage}>
       <S.CenterWrap>
         <S.LoginFormArea>
           <LoginForm />
