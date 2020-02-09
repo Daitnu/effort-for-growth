@@ -15,6 +15,7 @@ export const HomePage: React.SFC = () => {
   return (
     <GS.FullScreenWrap>
       <GS.CenterWrap {...centerWrapOptions} />
+      home page입니다..
     </GS.FullScreenWrap>
   );
 };
