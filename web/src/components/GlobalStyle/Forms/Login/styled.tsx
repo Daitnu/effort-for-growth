@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import * as GS from '../../../GlobalStyle';
-import userIcon from '../../../../assets/user.png';
-import passwordIcon from '../../../../assets/key.png';
+import userIcon from '../../../../../assets/user.png';
+import passwordIcon from '../../../../../assets/key.png';
 
 const borderRadius = '8px';
 const borderColor = '#cfcdcb';

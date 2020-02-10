@@ -2,7 +2,7 @@ import React from 'react';
 import * as S from './styled';
 import * as GS from '../../components/GlobalStyle';
 import { LoginForm } from '../../components/GlobalStyle/Forms/Login';
-import backgoundImage from '../../assets/back.jpg';
+import backgoundImage from '../../../assets/back.jpg';
 
 export const LoginPage: React.SFC = () => {
   return (

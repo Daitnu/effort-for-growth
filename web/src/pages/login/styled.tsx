@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import * as GS from '../../components/GlobalStyle';
 import { BREAK_POINT_MOBILE } from '../../constants';
-import backgroundImg from '../../assets/space.jpg';
+import backgroundImg from '../../../assets/space.jpg';
 
 export const ImageInputCard = styled.div`
   width: ${props => props.width};
