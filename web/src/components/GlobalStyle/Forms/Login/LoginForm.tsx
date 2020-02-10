@@ -80,19 +80,19 @@ export const LoginForm = () => {
         <S.IconWrapper>
           <S.FacebookIcon />
         </S.IconWrapper>
-        <S.FacebookButton />
+        <S.FacebookButton>페이스북으로 로그인하기</S.FacebookButton>
       </S.FormItemWithIcon>
       <S.FormItemWithIcon>
         <S.IconWrapper>
           <S.TwitterIcon />
         </S.IconWrapper>
-        <S.TwitterButton />
+        <S.TwitterButton>트위터로 로그인하기</S.TwitterButton>
       </S.FormItemWithIcon>
       <S.FormItemWithIcon>
         <S.IconWrapper>
           <S.GoogleIcon />
         </S.IconWrapper>
-        <S.GoogleButton />
+        <S.GoogleButton>구글로 로그인하기</S.GoogleButton>
       </S.FormItemWithIcon>
     </div>
   );

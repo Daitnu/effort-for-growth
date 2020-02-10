@@ -9,6 +9,9 @@ import googleIcon from '../../../../../assets/google.png';
 const borderRadius = '8px';
 const borderColor = '#cfcdcb';
 const loginButtonColor = '#4786ff';
+const facebookFontColor = '#4267b2';
+const twitterFontColor = '#03a9f4';
+const googleFontColor = '#f44235';
 
 export const FormItem = styled(GS.FlexRow)`
   margin: 10px 0 10px 0;
@@ -53,6 +56,7 @@ export const SNSButton = styled(GS.FullWidth.withComponent('button'))`
   background-color: white;
   outline: none;
   cursor: pointer;
+  font-size: 1rem;
 `;
 
 export const IconWrapper = styled(GS.FlexJustifyAlignCenter)`
@@ -86,8 +90,14 @@ export const GoogleIcon = styled(IconStyle)`
   background-image: url(${googleIcon});
 `;
 
-export const TwitterButton = styled(SNSButton)``;
+export const FacebookButton = styled(SNSButton)`
+  color: ${facebookFontColor};
+`;
 
-export const FacebookButton = styled(SNSButton)``;
+export const TwitterButton = styled(SNSButton)`
+  color: ${twitterFontColor};
+`;
 
-export const GoogleButton = styled(SNSButton)``;
+export const GoogleButton = styled(SNSButton)`
+  color: ${googleFontColor};
+`;
