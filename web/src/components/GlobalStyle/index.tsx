@@ -7,7 +7,7 @@ export const FullScreenWrap = styled.div`
   box-sizing: border-box;
   height: 100vh;
   width: 100%;
-  background: ${props => `url(${props.bg})` || 'none'};
+  background: ${props => `center/cover no-repeat url(${props.bg})` || 'none'};
 `;
 
 export const CenterWrap = styled.div`
