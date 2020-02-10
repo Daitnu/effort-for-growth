@@ -2,6 +2,9 @@ import styled, { css } from 'styled-components';
 import * as GS from '../../../GlobalStyle';
 import userIcon from '../../../../../assets/user.png';
 import passwordIcon from '../../../../../assets/key.png';
+import facebookIcon from '../../../../../assets/facebook.png';
+import twitterIcon from '../../../../../assets/twitter.png';
+import googleIcon from '../../../../../assets/google.png';
 
 const borderRadius = '8px';
 const borderColor = '#cfcdcb';
@@ -43,6 +46,15 @@ export const LoginButton = styled.button`
   cursor: pointer;
 `;
 
+export const SNSButton = styled(GS.FullWidth.withComponent('button'))`
+  border: none;
+  height: 100%;
+  border-radius: ${borderRadius};
+  background-color: white;
+  outline: none;
+  cursor: pointer;
+`;
+
 export const IconWrapper = styled(GS.FlexJustifyAlignCenter)`
   width: 75px;
   height: 50px;
@@ -61,3 +73,21 @@ export const UserIcon = styled(IconStyle)`
 export const PasswordIcon = styled(IconStyle)`
   background-image: url(${passwordIcon});
 `;
+
+export const FacebookIcon = styled(IconStyle)`
+  background-image: url(${facebookIcon});
+`;
+
+export const TwitterIcon = styled(IconStyle)`
+  background-image: url(${twitterIcon});
+`;
+
+export const GoogleIcon = styled(IconStyle)`
+  background-image: url(${googleIcon});
+`;
+
+export const TwitterButton = styled(SNSButton)``;
+
+export const FacebookButton = styled(SNSButton)``;
+
+export const GoogleButton = styled(SNSButton)``;

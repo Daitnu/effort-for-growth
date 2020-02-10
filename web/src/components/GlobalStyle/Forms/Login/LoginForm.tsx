@@ -76,6 +76,24 @@ export const LoginForm = () => {
           <div>Forgot password?</div>
         </GS.SpaceBetweenWithFullWidth>
       </S.FormItem>
+      <S.FormItemWithIcon>
+        <S.IconWrapper>
+          <S.FacebookIcon />
+        </S.IconWrapper>
+        <S.FacebookButton />
+      </S.FormItemWithIcon>
+      <S.FormItemWithIcon>
+        <S.IconWrapper>
+          <S.TwitterIcon />
+        </S.IconWrapper>
+        <S.TwitterButton />
+      </S.FormItemWithIcon>
+      <S.FormItemWithIcon>
+        <S.IconWrapper>
+          <S.GoogleIcon />
+        </S.IconWrapper>
+        <S.GoogleButton />
+      </S.FormItemWithIcon>
     </div>
   );
 };
