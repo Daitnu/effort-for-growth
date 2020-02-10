@@ -65,9 +65,9 @@ export const LoginForm = () => {
             <input type="checkbox" id="autoLogin" />
             <label htmlFor="autoLogin">자동 로그인</label>
           </GS.AlignCenter>
-          <button type="submit" onClick={handleSubmitClick}>
+          <S.LoginButton type="submit" onClick={handleSubmitClick}>
             로그인
-          </button>
+          </S.LoginButton>
         </GS.SpaceBetweenWithFullWidth>
       </S.FormItem>
       <S.FormItem>

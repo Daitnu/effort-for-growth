@@ -5,6 +5,7 @@ import passwordIcon from '../../../../../assets/key.png';
 
 const borderRadius = '8px';
 const borderColor = '#cfcdcb';
+const loginButtonColor = '#4786ff';
 
 export const FormItem = styled(GS.FlexRow)`
   margin: 10px 0 10px 0;
@@ -29,6 +30,17 @@ export const FormInput = styled.input`
   border: none;
   outline: none;
   padding: 0 10px 0 10px;
+`;
+
+export const LoginButton = styled.button`
+  width: 30%;
+  height: 40px;
+  background-color: ${loginButtonColor};
+  border: none;
+  border-radius: 8px;
+  color: white;
+  outline: none;
+  cursor: pointer;
 `;
 
 export const IconWrapper = styled(GS.FlexJustifyAlignCenter)`
