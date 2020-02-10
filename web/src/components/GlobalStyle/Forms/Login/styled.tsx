@@ -1,10 +1,10 @@
 import styled, { css } from 'styled-components';
 import * as GS from '../../../GlobalStyle';
-import userIcon from '../../../../../assets/user.png';
-import passwordIcon from '../../../../../assets/key.png';
-import facebookIcon from '../../../../../assets/facebook.png';
-import twitterIcon from '../../../../../assets/twitter.png';
-import googleIcon from '../../../../../assets/google.png';
+import userIcon from 'Assets/user.png';
+import passwordIcon from 'Assets/key.png';
+import facebookIcon from 'Assets/facebook.png';
+import twitterIcon from 'Assets/twitter.png';
+import googleIcon from 'Assets/google.png';
 
 const borderRadius = '8px';
 const borderColor = '#cfcdcb';

@@ -1,5 +1,5 @@
 import React from 'react';
-import * as GS from '../../components/GlobalStyle';
+import * as GS from '~/components/GlobalStyle';
 
 interface IcenterWrapOptions {
   width: string;

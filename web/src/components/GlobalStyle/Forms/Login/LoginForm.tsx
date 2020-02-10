@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import * as S from './styled';
 import * as GS from '../../../GlobalStyle';
-import { KEY_CODE } from '../../../../constants';
+import { KEY_CODE } from '~/constants';
 
 interface IUser {
   id: string;
