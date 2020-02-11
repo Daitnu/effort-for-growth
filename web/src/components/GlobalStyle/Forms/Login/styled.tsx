@@ -49,7 +49,7 @@ export const LoginButton = styled.button`
   cursor: pointer;
 `;
 
-export const SNSButton = styled(GS.FullWidth.withComponent('button'))`
+export const SNSLoginButton = styled(GS.FullWidth.withComponent('button'))`
   border: none;
   height: 100%;
   border-radius: ${borderRadius};
@@ -90,14 +90,14 @@ export const GoogleIcon = styled(IconStyle)`
   background-image: url(${googleIcon});
 `;
 
-export const FacebookButton = styled(SNSButton)`
+export const FacebookButton = styled(SNSLoginButton)`
   color: ${facebookFontColor};
 `;
 
-export const TwitterButton = styled(SNSButton)`
+export const TwitterButton = styled(SNSLoginButton)`
   color: ${twitterFontColor};
 `;
 
-export const GoogleButton = styled(SNSButton)`
+export const GoogleButton = styled(SNSLoginButton)`
   color: ${googleFontColor};
 `;
