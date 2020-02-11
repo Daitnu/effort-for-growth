@@ -23,7 +23,7 @@ const execute = async (fn: Function) => {
   return response;
 };
 
-axios.defaults.withCredentials = true;
+// axios.defaults.withCredentials = true;
 
 const server: AxiosInstance = axios.create({
   baseURL: API_SERVER,
