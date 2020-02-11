@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import * as GS from '../../../GlobalStyle';
 import userIcon from 'Assets/user.png';
 import passwordIcon from 'Assets/key.png';

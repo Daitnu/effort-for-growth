@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import * as S from './styled';
 import * as GS from '../../../GlobalStyle';
 import { KEY_CODE } from '~/constants';
