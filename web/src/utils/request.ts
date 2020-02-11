@@ -2,7 +2,7 @@ import axios, { AxiosInstance } from 'axios';
 import { errorParser } from './error/error-parser';
 import HTTPResponse from './http-response';
 
-const API_SERVER: string = 'http://localhost';
+const API_SERVER: string = 'http://localhost/graphql';
 
 interface Irequest {
   url: string;
