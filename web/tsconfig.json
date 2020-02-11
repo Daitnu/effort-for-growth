@@ -11,8 +11,8 @@
     "jsx": "react",
     "allowSyntheticDefaultImports": true,
     "keyofStringsOnly": true,
+    "baseUrl": ".",
     "paths": {
-      "baseUrl": ".",
       "~": ["./src"]
     }
   },
