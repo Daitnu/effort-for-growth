@@ -12,6 +12,7 @@
   "author": "jonghwajoa",
   "license": "MIT",
   "dependencies": {
+    "@koa/cors": "^2.2.3",
     "@types/koa-router": "^7.0.42",
     "apollo-server": "^2.9.15",
     "apollo-server-koa": "^2.9.15",

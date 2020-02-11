@@ -2,6 +2,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 import Koa from "koa";
+import cors from "@koa/cors";
 import "reflect-metadata";
 import { createConnection } from "typeorm";
 import { ApolloServer } from "apollo-server-koa";
@@ -10,6 +11,7 @@ const { PORT, NODE_ENV } = process.env;
 const PRODUCTION = "production";
 const isNotProductionMode = PRODUCTION !== NODE_ENV;
 const app = new Koa();
+app.use(cors());
 
 const startServer = async () => {
   await createConnection();
