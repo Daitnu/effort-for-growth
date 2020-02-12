@@ -23,9 +23,9 @@ export const LoginForm = () => {
   const [user, setUser] = useState<IUser>({ id: '', pw: '' });
   const [login] = useMutation<IUser>(LOGIN);
 
-  const handleInputChange = ({ target }) => {
-    const changedField: string = target.id;
-    const changedValue: string = target.value;
+  const handleInputChange = ({ target: { id, value } }) => {
+    const changedField: string = id;
+    const changedValue: string = value;
     setUser({
       ...user,
       [changedField]: changedValue,
