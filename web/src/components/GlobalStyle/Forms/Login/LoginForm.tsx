@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useMutation } from '@apollo/react-hooks';
+import { gql, DocumentNode } from 'apollo-boost';
 import * as S from './styled';
 import * as GS from '../../../GlobalStyle';
 import { KEY_CODE } from '~/constants';
@@ -8,8 +10,18 @@ interface IUser {
   pw: string;
 }
 
+const LOGIN: DocumentNode = gql`
+  mutation Login($id: String!, $pw: String!) {
+    login(id: $id, pw: $pw) {
+      id
+      pw
+    }
+  }
+`;
+
 export const LoginForm = () => {
   const [user, setUser] = useState<IUser>({ id: '', pw: '' });
+  const [login] = useMutation<IUser>(LOGIN);
 
   const handleInputChange = ({ target }) => {
     const changedField: string = target.id;
@@ -26,8 +38,16 @@ export const LoginForm = () => {
   };
 
   const handleSubmitClick = () => {
+    const { id, pw } = user;
     console.log(user);
     console.log('submit click');
+    login({ variables: { id, pw } })
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => {
+        console.log(err.graphQLErrors);
+      });
   };
 
   return (
