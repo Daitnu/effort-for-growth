@@ -6,18 +6,35 @@ import facebookIcon from 'Assets/facebook.png';
 import twitterIcon from 'Assets/twitter.png';
 import googleIcon from 'Assets/google.png';
 
-const borderRadius = '8px';
-const borderColor = '#cfcdcb';
-const loginButtonColor = '#4786ff';
-const facebookFontColor = '#4267b2';
-const twitterFontColor = '#03a9f4';
-const googleFontColor = '#f44235';
+const border = {
+  radius: {
+    common: '8px',
+  },
+};
+
+const color = {
+  font: {
+    facebook: '#4267b2',
+    twitter: '#03a9f4',
+    google: '#f44235',
+  },
+  border: {
+    common: '#cfcdcb',
+  },
+  button: {
+    login: '#4786ff',
+  },
+};
+
+interface IFormItem {
+  isDisplay: Boolean;
+}
 
 export const FormItem = styled(GS.FlexRow)`
   margin: 10px 0 10px 0;
   width: 300px;
   & > label {
-    display: ${props => props.isDisplay || 'none'};
+    display: ${(props: IFormItem) => props.isDisplay || 'none'};
   }
 `;
 
@@ -25,14 +42,14 @@ export const FormItemWithIcon = styled(GS.FlexJustifyAlignCenter)`
   margin: 10px 0 10px 0;
   width: 300px;
   height: 50px;
-  border: 1px solid ${borderColor};
-  border-radius: ${borderRadius};
+  border: 1px solid ${color.border.common};
+  border-radius: ${border.radius.common};
 `;
 
 export const FormInput = styled.input`
   width: 100%;
   height: 50px;
-  border-radius: ${borderRadius};
+  border-radius: ${border.radius.common};
   border: none;
   outline: none;
   padding: 0 10px 0 10px;
@@ -41,7 +58,7 @@ export const FormInput = styled.input`
 export const LoginButton = styled.button`
   width: 30%;
   height: 40px;
-  background-color: ${loginButtonColor};
+  background-color: ${color.button.login};
   border: none;
   border-radius: 8px;
   color: white;
@@ -52,7 +69,7 @@ export const LoginButton = styled.button`
 export const SNSLoginButton = styled(GS.FullWidth.withComponent('button'))`
   border: none;
   height: 100%;
-  border-radius: ${borderRadius};
+  border-radius: ${border.radius.common};
   background-color: white;
   outline: none;
   cursor: pointer;
@@ -62,7 +79,7 @@ export const SNSLoginButton = styled(GS.FullWidth.withComponent('button'))`
 export const IconWrapper = styled(GS.FlexJustifyAlignCenter)`
   width: 75px;
   height: 50px;
-  border-right: 1px solid ${borderColor};
+  border-right: 1px solid ${color.border.common};
 `;
 
 const IconStyle = styled(GS.BackgroundImageStyle)`
@@ -91,13 +108,13 @@ export const GoogleIcon = styled(IconStyle)`
 `;
 
 export const FacebookButton = styled(SNSLoginButton)`
-  color: ${facebookFontColor};
+  color: ${color.font.facebook};
 `;
 
 export const TwitterButton = styled(SNSLoginButton)`
-  color: ${twitterFontColor};
+  color: ${color.font.twitter};
 `;
 
 export const GoogleButton = styled(SNSLoginButton)`
-  color: ${googleFontColor};
+  color: ${color.font.google};
 `;
