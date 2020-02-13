@@ -12,14 +12,14 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const PAGE_NOT_FOUND: string = '유효하지 않은 페이지 입니다.';
-const AppRouter = () => (
+const AppRouter: React.FC = () => (
   <>
     <GlobalStyle />
     <Router>
       <Switch>
-        <Route exact path='/' component={HomePage} />
-        <Route path='/login' component={LoginPage} />
-        <Route path='*' exact={true} component={() => <ErrorPage message={PAGE_NOT_FOUND} />} />
+        <Route path="/" exact={true} component={HomePage} />
+        <Route path="/login" component={LoginPage} />
+        <Route path="*" exact={true} component={() => <ErrorPage message={PAGE_NOT_FOUND} />} />
       </Switch>
     </Router>
   </>
