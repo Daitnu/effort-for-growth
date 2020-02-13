@@ -11,7 +11,7 @@ const centerWrapOptions: IcenterWrapOptions = {
   height: '90%',
 };
 
-export const HomePage: React.SFC = () => {
+export const HomePage: React.FC = () => {
   return (
     <GS.FullScreenWrap>
       <GS.CenterWrap {...centerWrapOptions} />
