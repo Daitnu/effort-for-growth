@@ -10,7 +10,7 @@ interface IfetchData {
 
 const initialValues: IfetchData = { isLoading: true, error: false, data: null };
 
-const useFetch = (url: string) => {
+const useFetch = (url: string): IfetchData => {
   const [fetchingData, setFetchingData] = useState<IfetchData>(initialValues);
 
   useEffect(() => {
