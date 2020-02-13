@@ -19,11 +19,11 @@ const LOGIN: DocumentNode = gql`
   }
 `;
 
-export const LoginForm = () => {
+export const LoginForm: React.FC = () => {
   const [user, setUser] = useState<IUser>({ id: '', pw: '' });
   const [login] = useMutation<IUser>(LOGIN);
 
-  const handleInputChange = ({ target: { id, value } }) => {
+  const handleInputChange = ({ target: { id, value } }): void => {
     const changedField: string = id;
     const changedValue: string = value;
     setUser({
@@ -32,12 +32,12 @@ export const LoginForm = () => {
     });
   };
 
-  const handlePasswordKeyDown = ({ keyCode }) => {
+  const handlePasswordKeyDown = ({ keyCode }): void => {
     if (keyCode !== KEY_CODE.ENTER) return;
     handleSubmitClick();
   };
 
-  const handleSubmitClick = () => {
+  const handleSubmitClick = (): void => {
     const { id, pw } = user;
     console.log(user);
     console.log('submit click');
