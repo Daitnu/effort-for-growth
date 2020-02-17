@@ -3,6 +3,15 @@ import * as GS from '~/components/GlobalStyle';
 import { BREAK_POINT_MOBILE } from '~/constants';
 import backgroundImg from 'Assets/space.jpg';
 
+const width: Number = 760;
+const height: Number = 600;
+
+const UNIT = {
+  REM: 'rem',
+  EM: 'em',
+  PX: 'px',
+};
+
 export const ImageInputCard = styled.div`
   width: ${props => props.width};
   border: 1px solid grey;
@@ -12,8 +21,8 @@ export const ImageInputCard = styled.div`
 `;
 
 const sharedFlexItemStyle = css`
-  width: 50%;
-  height: 100%;
+  width: ${width / 2 + UNIT.PX};
+  height: ${height + UNIT.PX};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,6 +30,7 @@ const sharedFlexItemStyle = css`
 
 export const LoginFormArea = styled.div`
   ${sharedFlexItemStyle}
+  background-color: white;
 `;
 
 export const BackgoundImage = styled(GS.BackgroundImageStyle)`
@@ -29,8 +39,8 @@ export const BackgoundImage = styled(GS.BackgroundImageStyle)`
 `;
 
 export const CenterWrap = styled(GS.CenterWrap)`
-  width: 760px;
-  height: 600px;
+  width: ${width + UNIT.PX};
+  height: ${height + UNIT.PX};
   flex-direction: row;
   box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.15);
 
