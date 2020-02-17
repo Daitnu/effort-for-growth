@@ -96,6 +96,10 @@ export const LoginForm: React.FC = () => {
           <div>Forgot password?</div>
         </GS.SpaceBetweenWithFullWidth>
       </S.FormItem>
+      <S.DivideLineContainer>
+        <S.DivideLine />
+        <S.DivideLineContent>OR</S.DivideLineContent>
+      </S.DivideLineContainer>
       <S.FormItemWithIcon>
         <S.IconWrapper>
           <S.FacebookIcon />

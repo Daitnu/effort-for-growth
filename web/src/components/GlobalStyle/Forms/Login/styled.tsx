@@ -17,6 +17,7 @@ const color = {
     facebook: '#4267b2',
     twitter: '#03a9f4',
     google: '#f44235',
+    divideContent: '#acadbc',
   },
   border: {
     common: '#cfcdcb',
@@ -54,6 +55,29 @@ export const FormInput = styled.input`
   border: none;
   outline: none;
   padding: 0 10px 0 10px;
+`;
+
+export const DivideLineContainer = styled.div`
+  padding: 15px 0;
+  position: relative;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const DivideLine = styled.div`
+  width: 100%;
+  height: 1px;
+  background-color: ${color.border.common};
+`;
+
+export const DivideLineContent = styled.div`
+  position: absolute;
+  padding: 0 20px;
+  text-align: center;
+  color: ${color.font.divideContent};
+  background-color: white;
 `;
 
 export const LoginButton = styled.button`
