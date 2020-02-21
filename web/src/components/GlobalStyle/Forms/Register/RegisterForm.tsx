@@ -5,25 +5,57 @@ import * as GS from '../../../GlobalStyle';
 import { useMutation } from '@apollo/react-hooks';
 import { gql, DocumentNode } from 'apollo-boost';
 
-interface IUser {
+interface IRegisterForm {
   id: string;
   name: string;
   pw: string;
   pwConfirm: string;
 }
 
-const init: IUser = {
+interface IUser {
+  id: string;
+  name: string;
+}
+
+const init: IRegisterForm = {
   id: '',
   name: '',
   pw: '',
   pwConfirm: '',
 };
 
+const SIGN_UP: DocumentNode = gql`
+  mutation SignUp($id: String!, $pw: String!, $name: String!) {
+    signUp(id: $id, pw: $pw, name: $name) {
+      id
+      pw
+      name
+    }
+  }
+`;
+
+const pwCondition = ({ pw, pwConfirm }): boolean =>
+  pw === pwConfirm && pw !== '' && pwConfirm !== '';
+
 export const RegisterForm: React.FC = () => {
-  const [info, setInfo] = useState<IUser>(init);
-  const [errorMsg, setErrorMsg] = useState<IUser>(init);
+  const [info, setInfo] = useState<IRegisterForm>(init);
+  const [errorMsg, setErrorMsg] = useState<IRegisterForm>(init);
+  const [signUp] = useMutation<IUser>(SIGN_UP);
 
   const handleInputChange = ({ target: { id, value } }): void => setInfo({ ...info, [id]: value });
+  const handleSubmit = (): void => {
+    const { id, name, pw, pwConfirm }: IRegisterForm = info;
+    if (pwCondition({ pw, pwConfirm })) {
+      console.log('password 통과');
+      signUp({ variables: { id, pw, name } })
+        .then(res => {
+          console.log(res);
+        })
+        .catch(err => {
+          console.log(err.graphQLErrors);
+        });
+    }
+  };
 
   return (
     <div>
@@ -83,7 +115,7 @@ export const RegisterForm: React.FC = () => {
         />
       </LS.FormItemWithIcon>
       {errorMsg.pwConfirm}
-      <S.RegisterButton>회원가입</S.RegisterButton>
+      <S.RegisterButton onClick={handleSubmit}>회원가입</S.RegisterButton>
     </div>
   );
 };
