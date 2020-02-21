@@ -16,6 +16,12 @@ export const RegisterForm: React.FC = () => {
       </LS.FormItemWithIcon>
       <LS.FormItemWithIcon>
         <LS.IconWrapper>
+          <S.UserNameIcon />
+        </LS.IconWrapper>
+        <LS.FormInput type="text" id="name" placeholder="이름" maxLength={20} autoComplete="off" />
+      </LS.FormItemWithIcon>
+      <LS.FormItemWithIcon>
+        <LS.IconWrapper>
           <LS.PasswordIcon />
         </LS.IconWrapper>
         <LS.FormInput
@@ -32,12 +38,13 @@ export const RegisterForm: React.FC = () => {
         </LS.IconWrapper>
         <LS.FormInput
           type="password"
-          id="pw"
+          id="pw_confirm"
           placeholder="비밀번호 확인"
           autoComplete="off"
           maxLength={20}
         />
       </LS.FormItemWithIcon>
+      <S.RegisterButton>회원가입</S.RegisterButton>
     </div>
   );
 };
