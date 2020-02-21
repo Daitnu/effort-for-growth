@@ -1,7 +1,7 @@
 import React from 'react';
 import { createGlobalStyle } from 'styled-components';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { ErrorPage, LoginPage, HomePage } from './pages';
+import { ErrorPage, LoginPage, HomePage, RegisterPage } from './pages';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -19,6 +19,7 @@ const AppRouter: React.FC = () => (
       <Switch>
         <Route path="/" exact={true} component={HomePage} />
         <Route path="/login" component={LoginPage} />
+        <Route path="/register" component={RegisterPage} />
         <Route path="*" exact={true} component={() => <ErrorPage message={PAGE_NOT_FOUND} />} />
       </Switch>
     </Router>
