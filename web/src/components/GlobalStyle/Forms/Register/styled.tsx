@@ -4,6 +4,7 @@ import * as GS from '../../../GlobalStyle';
 import nameIcon from 'Assets/name.png';
 
 export const RegisterButton = styled(LS.LoginButton)`
+  margin-top: 10px;
   width: 100%;
 `;
 
