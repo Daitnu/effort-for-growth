@@ -26,6 +26,18 @@ export const RegisterForm: React.FC = () => {
           maxLength={20}
         />
       </LS.FormItemWithIcon>
+      <LS.FormItemWithIcon>
+        <LS.IconWrapper>
+          <LS.PasswordIcon />
+        </LS.IconWrapper>
+        <LS.FormInput
+          type="password"
+          id="pw"
+          placeholder="비밀번호 확인"
+          autoComplete="off"
+          maxLength={20}
+        />
+      </LS.FormItemWithIcon>
     </div>
   );
 };
