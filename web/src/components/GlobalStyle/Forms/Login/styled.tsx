@@ -107,28 +107,23 @@ export const IconWrapper = styled(GS.FlexJustifyAlignCenter)`
   border-right: 1px solid ${color.border.common};
 `;
 
-const IconStyle = styled(GS.BackgroundImageStyle)`
-  width: 30px;
-  height: 30px;
-`;
-
-export const UserIcon = styled(IconStyle)`
+export const UserIcon = styled(GS.IconStyle)`
   background-image: url(${userIcon});
 `;
 
-export const PasswordIcon = styled(IconStyle)`
+export const PasswordIcon = styled(GS.IconStyle)`
   background-image: url(${passwordIcon});
 `;
 
-export const FacebookIcon = styled(IconStyle)`
+export const FacebookIcon = styled(GS.IconStyle)`
   background-image: url(${facebookIcon});
 `;
 
-export const TwitterIcon = styled(IconStyle)`
+export const TwitterIcon = styled(GS.IconStyle)`
   background-image: url(${twitterIcon});
 `;
 
-export const GoogleIcon = styled(IconStyle)`
+export const GoogleIcon = styled(GS.IconStyle)`
   background-image: url(${googleIcon});
 `;
 

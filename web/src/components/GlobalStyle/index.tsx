@@ -61,3 +61,8 @@ export const BackgroundImageStyle = styled.div`
   background-size: cover;
   background-position: center center;
 `;
+
+export const IconStyle = styled(BackgroundImageStyle)`
+  width: 30px;
+  height: 30px;
+`;
