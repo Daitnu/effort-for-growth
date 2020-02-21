@@ -5,22 +5,25 @@ import * as GS from '../../../GlobalStyle';
 import { useMutation } from '@apollo/react-hooks';
 import { gql, DocumentNode } from 'apollo-boost';
 
-interface IError {
+interface IUser {
   id: string;
   name: string;
   pw: string;
-  pwCheck: string;
+  pwConfirm: string;
 }
 
-const initError: IError = {
+const init: IUser = {
   id: '',
   name: '',
   pw: '',
-  pwCheck: '',
+  pwConfirm: '',
 };
 
 export const RegisterForm: React.FC = () => {
-  const [errorMsg, setErrorMsg] = useState<IError>(initError);
+  const [info, setInfo] = useState<IUser>(init);
+  const [errorMsg, setErrorMsg] = useState<IUser>(init);
+
+  const handleInputChange = ({ target: { id, value } }): void => setInfo({ ...info, [id]: value });
 
   return (
     <div>
@@ -28,14 +31,28 @@ export const RegisterForm: React.FC = () => {
         <LS.IconWrapper>
           <LS.UserIcon />
         </LS.IconWrapper>
-        <LS.FormInput type="text" id="id" placeholder="아이디" maxLength={20} autoComplete="off" />
+        <LS.FormInput
+          type="text"
+          id="id"
+          placeholder="아이디"
+          maxLength={20}
+          autoComplete="off"
+          onChange={handleInputChange}
+        />
       </LS.FormItemWithIcon>
       {errorMsg.id}
       <LS.FormItemWithIcon>
         <LS.IconWrapper>
           <S.UserNameIcon />
         </LS.IconWrapper>
-        <LS.FormInput type="text" id="name" placeholder="이름" maxLength={20} autoComplete="off" />
+        <LS.FormInput
+          type="text"
+          id="name"
+          placeholder="이름"
+          maxLength={20}
+          autoComplete="off"
+          onChange={handleInputChange}
+        />
       </LS.FormItemWithIcon>
       {errorMsg.name}
       <LS.FormItemWithIcon>
@@ -48,6 +65,7 @@ export const RegisterForm: React.FC = () => {
           placeholder="비밀번호"
           autoComplete="off"
           maxLength={20}
+          onChange={handleInputChange}
         />
       </LS.FormItemWithIcon>
       {errorMsg.pw}
@@ -57,13 +75,14 @@ export const RegisterForm: React.FC = () => {
         </LS.IconWrapper>
         <LS.FormInput
           type="password"
-          id="pw_confirm"
+          id="pwConfirm"
           placeholder="비밀번호 확인"
           autoComplete="off"
           maxLength={20}
+          onChange={handleInputChange}
         />
       </LS.FormItemWithIcon>
-      {errorMsg.pwCheck}
+      {errorMsg.pwConfirm}
       <S.RegisterButton>회원가입</S.RegisterButton>
     </div>
   );
