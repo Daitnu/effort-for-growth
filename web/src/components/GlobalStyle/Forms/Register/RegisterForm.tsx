@@ -4,6 +4,7 @@ import * as LS from '../Login/styled';
 import * as GS from '../../../GlobalStyle';
 import { useMutation } from '@apollo/react-hooks';
 import { gql, DocumentNode } from 'apollo-boost';
+import { checkLength, CHECK_TYPE } from '~/utils/validator';
 
 interface IRegisterForm {
   id: string;
@@ -28,7 +29,6 @@ const SIGN_UP: DocumentNode = gql`
   mutation SignUp($id: String!, $pw: String!, $name: String!) {
     signUp(id: $id, pw: $pw, name: $name) {
       id
-      pw
       name
     }
   }
@@ -36,6 +36,15 @@ const SIGN_UP: DocumentNode = gql`
 
 const pwCondition = ({ pw, pwConfirm }): boolean =>
   pw === pwConfirm && pw !== '' && pwConfirm !== '';
+
+const registerValidate = ({ id, pw, pwConfirm, name }: IRegisterForm): boolean => {
+  return (
+    pwCondition({ pw, pwConfirm }) &&
+    checkLength(CHECK_TYPE.ID, id) &&
+    checkLength(CHECK_TYPE.PW, pw) &&
+    checkLength(CHECK_TYPE.NAME, name)
+  );
+};
 
 export const RegisterForm: React.FC = () => {
   const [info, setInfo] = useState<IRegisterForm>(init);
@@ -45,8 +54,8 @@ export const RegisterForm: React.FC = () => {
   const handleInputChange = ({ target: { id, value } }): void => setInfo({ ...info, [id]: value });
   const handleSubmit = (): void => {
     const { id, name, pw, pwConfirm }: IRegisterForm = info;
-    if (pwCondition({ pw, pwConfirm })) {
-      console.log('password 통과');
+    if (registerValidate({ id, pw, pwConfirm, name })) {
+      console.log('validation 통과');
       signUp({ variables: { id, pw, name } })
         .then(res => {
           console.log(res);
