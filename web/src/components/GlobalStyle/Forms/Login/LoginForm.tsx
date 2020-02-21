@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/react-hooks';
 import { gql, DocumentNode } from 'apollo-boost';
 import * as S from './styled';
@@ -100,7 +101,7 @@ export const LoginForm: React.FC = () => {
       <S.FormItem>{errorMessage.message}</S.FormItem>
       <S.FormItem>
         <GS.SpaceBetweenWithFullWidth>
-          <div>Register now</div>
+          <Link to="/register">Register now</Link>
           <div>Forgot password?</div>
         </GS.SpaceBetweenWithFullWidth>
       </S.FormItem>
