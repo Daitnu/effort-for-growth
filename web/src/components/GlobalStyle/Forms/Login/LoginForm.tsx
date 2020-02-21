@@ -10,6 +10,10 @@ interface IUser {
   pw: string;
 }
 
+interface IError {
+  message: string;
+}
+
 const LOGIN: DocumentNode = gql`
   mutation Login($id: String!, $pw: String!) {
     login(id: $id, pw: $pw) {
@@ -21,6 +25,7 @@ const LOGIN: DocumentNode = gql`
 
 export const LoginForm: React.FC = () => {
   const [user, setUser] = useState<IUser>({ id: '', pw: '' });
+  const [errorMessage, setErrorMessage] = useState<IError>({ message: '' });
   const [login] = useMutation<IUser>(LOGIN);
 
   const handleInputChange = ({ target: { id, value } }): void => {
@@ -44,9 +49,11 @@ export const LoginForm: React.FC = () => {
     login({ variables: { id, pw } })
       .then(res => {
         console.log(res);
+        setErrorMessage({ message: '' });
       })
       .catch(err => {
         console.log(err.graphQLErrors);
+        setErrorMessage({ message: err.graphQLErrors[0].message });
       });
   };
 
@@ -90,6 +97,7 @@ export const LoginForm: React.FC = () => {
           </S.LoginButton>
         </GS.SpaceBetweenWithFullWidth>
       </S.FormItem>
+      <S.FormItem>{errorMessage.message}</S.FormItem>
       <S.FormItem>
         <GS.SpaceBetweenWithFullWidth>
           <div>Register now</div>
