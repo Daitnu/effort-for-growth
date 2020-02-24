@@ -1,6 +1,6 @@
 import validator from "validator";
 import { ErrorField } from "../exception";
-import { ValidationError } from "apollo-server";
+import { ValidationError, UserInputError } from "apollo-server";
 import { ERROR } from "../exception/constant";
 
 const checkIdLength = id => validator.isLength(id, { min: 6, max: 16 });
@@ -40,7 +40,7 @@ export const checkSignUpParams = ({ id, pw, name }): boolean => {
   }
 
   if (errorFields.length) {
-    throw new ValidationError(ERROR.ACCOUNT.INVALID_ID_OR_PW);
+    throw new UserInputError(ERROR.INVALID_INPUT_VALUE, { errorFields });
   }
 
   return true;
