@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import * as S from './styled';
 import * as LS from '../Login/styled';
-import * as GS from '../../../GlobalStyle';
 import { useMutation } from '@apollo/react-hooks';
 import { gql, DocumentNode } from 'apollo-boost';
 import { checkLength, CHECK_TYPE } from '~/utils/validator';
@@ -66,7 +65,6 @@ export const RegisterForm: React.FC = () => {
         });
     }
   };
-  const moveToLoginPage = (): void => {};
 
   return (
     <div>
@@ -128,7 +126,7 @@ export const RegisterForm: React.FC = () => {
       {errorMsg.pwConfirm}
       <S.RegisterButton onClick={handleSubmit}>회원가입</S.RegisterButton>
       <Link to="login">
-        <S.RegisterButton onClick={handleSubmit}>로그인하러 가기</S.RegisterButton>
+        <S.RegisterButton>로그인하러 가기</S.RegisterButton>
       </Link>
     </div>
   );
