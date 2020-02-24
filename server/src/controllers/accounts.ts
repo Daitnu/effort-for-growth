@@ -1,6 +1,9 @@
 import { ILogin, ISignUp, IResponseSignup } from "../@types/account";
 import * as accountService from "../services/account";
-import { checkLoginParams } from "../libraries/validator/accounts";
+import {
+  checkLoginParams,
+  checkSignUpParams
+} from "../libraries/validator/accounts";
 
 const login = async (_, { id, pw }: ILogin): Promise<ILogin> => {
   checkLoginParams({ id, pw });
@@ -9,8 +12,8 @@ const login = async (_, { id, pw }: ILogin): Promise<ILogin> => {
 };
 
 const signUp = async (_, { id, pw, name }: ISignUp) => {
-  const values = await accountService.signUp({ id, pw, name });
-  delete values.pw;
+  checkSignUpParams({ id, pw, name });
+  const values: IResponseSignup = await accountService.signUp({ id, pw, name });
   return values;
 };
 

@@ -1,7 +1,7 @@
 import bcrypt from "bcryptjs";
 import { getRepository } from "typeorm";
 import { User } from "../entity";
-import { ILogin, ISignUp } from "../@types/account";
+import { ILogin, ISignUp, IResponseSignup } from "../@types/account";
 import { ValidationError } from "apollo-server";
 import { ERROR } from "../libraries/exception/constant";
 
@@ -24,7 +24,11 @@ export const login = async ({ id, pw }: ILogin): Promise<ILogin> => {
   return user;
 };
 
-export const signUp = async ({ id, pw, name }: ISignUp): Promise<ISignUp> => {
+export const signUp = async ({
+  id,
+  pw,
+  name
+}: ISignUp): Promise<IResponseSignup> => {
   const duplicatedUser: ILogin = await userRepo.findOne({ id });
   if (duplicatedUser) {
     throw new ValidationError(ERROR.ACCOUNT.DUPLICATED);
@@ -37,6 +41,7 @@ export const signUp = async ({ id, pw, name }: ISignUp): Promise<ISignUp> => {
   user.pw = hashedPw;
   user.name = name;
 
-  const newUser = await userRepo.save(user);
+  const newUser: User = await userRepo.save(user);
+  delete newUser.pw;
   return newUser;
 };
