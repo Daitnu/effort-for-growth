@@ -40,9 +40,9 @@ const pwCondition = ({ pw, pwConfirm }): boolean =>
 const registerValidate = ({ id, pw, pwConfirm, name }: IRegisterForm): boolean => {
   return (
     pwCondition({ pw, pwConfirm }) &&
-    checkLength(CHECK_TYPE.ID, id) &&
-    checkLength(CHECK_TYPE.PW, pw) &&
-    checkLength(CHECK_TYPE.NAME, name)
+    checkLength({ type: CHECK_TYPE.ID, val: id }) &&
+    checkLength({ type: CHECK_TYPE.PW, val: pw }) &&
+    checkLength({ type: CHECK_TYPE.NAME, val: name })
   );
 };
 

@@ -17,12 +17,22 @@ const validate = {
   },
 };
 
+export interface ICheckLengthParams {
+  type: string;
+  val: string;
+}
+
 export const CHECK_TYPE = {
   ID: 'id',
   PW: 'pw',
   NAME: 'name',
 };
 
-export const checkLength = (type: string, val: string): boolean => {
-  return validate[type].min <= val.length && val.length <= validate[type].max;
+export const checkLength = (params: ICheckLengthParams): boolean => {
+  const MIN_CHECK = validate[params.type].min <= params.val.length;
+  const MAX_CHECK = validate[params.type].max >= params.val.length;
+  const result: boolean = MIN_CHECK && MAX_CHECK;
+  return result;
 };
+
+// TODO: value를 전부 받아와서 input validation을 수행할 함수 작성
