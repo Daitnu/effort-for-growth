@@ -25,6 +25,11 @@ export const login = async ({ id, pw }: ILogin): Promise<ILogin> => {
 };
 
 export const signUp = async ({ id, pw, name }: ISignUp): Promise<ISignUp> => {
+  const duplicatedUser: ILogin = await userRepo.findOne({ id });
+  if (duplicatedUser) {
+    throw new ValidationError(ERROR.ACCOUNT.DUPLICATED);
+  }
+
   const salt = await bcrypt.genSalt(10);
   const hashedPw = await bcrypt.hash(pw, salt);
   const user = new User();
