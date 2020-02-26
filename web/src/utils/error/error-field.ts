@@ -1,7 +1,7 @@
 export class ErrorField {
-  private readonly field: string;
-  private readonly value: string;
-  private readonly reason: string;
+  readonly field: string;
+  readonly value: string;
+  readonly reason: string;
 
   constructor(field: string, value: string = '', reason: string) {
     this.field = field;
