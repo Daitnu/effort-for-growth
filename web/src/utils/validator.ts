@@ -14,6 +14,10 @@ const validate = {
     min: PW_MIN,
     max: PW_MAX,
   },
+  pwConfiem: {
+    min: PW_MIN,
+    max: PW_MAX,
+  },
   name: {
     min: NAME_MIN,
     max: NAME_MAX,
