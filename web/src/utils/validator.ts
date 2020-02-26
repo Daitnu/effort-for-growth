@@ -27,21 +27,24 @@ export interface ICheckLengthParams {
 
 interface IValidationResult {
   result: boolean;
-  errors?: ErrorField;
+  error?: ErrorField;
 }
 
 export const checkFieldLength = ({ type, val }: ICheckLengthParams): IValidationResult => {
   const MIN_CHECK = validate[type].min <= val.length;
   if (!MIN_CHECK) {
-    return { result: false, errors: new ErrorField(type, val, ERROR.REGISTER.LENGTH[type]) };
+    return { result: false, error: new ErrorField(type, val, ERROR.REGISTER.LENGTH[type]) };
   }
   const MAX_CHECK = validate[type].max >= val.length;
   if (!MAX_CHECK) {
-    return { result: false, errors: new ErrorField(type, val, ERROR.REGISTER.LENGTH[type]) };
+    return { result: false, error: new ErrorField(type, val, ERROR.REGISTER.LENGTH[type]) };
   }
   return { result: true };
 };
 
-// TODO: value를 전부 받아와서 input validation을 수행할 함수 작성
-
-export const inputValidation = (values: Array<ICheckLengthParams>) => {};
+export const inputValidation = (values: Array<ICheckLengthParams>) => {
+  const validateResult: IValidationResult[] = values.map(({ type, val }) =>
+    checkFieldLength({ type, val }),
+  );
+  return validateResult;
+};
