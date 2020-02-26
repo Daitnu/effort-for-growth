@@ -46,6 +46,9 @@ const registerValidate = ({ id, pw, pwConfirm, name }: IRegisterForm, setErrorMs
   vals.push({ type: REGISTER_FIELDS.PW, val: pw });
   vals.push({ type: REGISTER_FIELDS.NAME, val: name });
   const validationResult = inputValidation(vals).filter(({ error }) => error !== null);
+  // error가 null일 경우 제외하라는 코드를 inputValidation함수 내에 쓰면 배열에 undefined가 들어가게됨
+  // TODO: 원인 찾기
+
   if (!pwCondition({ pw, pwConfirm })) {
     validationResult.push({
       error: new ErrorField('pwConfirm', pwConfirm, ERROR.REGISTER.EQUAL['pwConfirm']),
