@@ -1,3 +1,6 @@
+import { ErrorField } from '../utils/error/error-field';
+import { ERROR } from '../utils/error/constant';
+
 const [ID_MIN, ID_MAX] = [6, 16];
 const [PW_MIN, PW_MAX] = [8, 16];
 const [NAME_MIN, NAME_MAX] = [2, 16];
@@ -22,17 +25,23 @@ export interface ICheckLengthParams {
   val: string;
 }
 
-export const CHECK_TYPE = {
-  ID: 'id',
-  PW: 'pw',
-  NAME: 'name',
-};
+interface IValidationResult {
+  result: boolean;
+  errors?: ErrorField;
+}
 
-export const checkLength = ({ type, val }: ICheckLengthParams): boolean => {
+export const checkFieldLength = ({ type, val }: ICheckLengthParams): IValidationResult => {
   const MIN_CHECK = validate[type].min <= val.length;
+  if (!MIN_CHECK) {
+    return { result: false, errors: new ErrorField(type, val, ERROR.REGISTER.LENGTH[type]) };
+  }
   const MAX_CHECK = validate[type].max >= val.length;
-  const result: boolean = MIN_CHECK && MAX_CHECK;
-  return result;
+  if (!MAX_CHECK) {
+    return { result: false, errors: new ErrorField(type, val, ERROR.REGISTER.LENGTH[type]) };
+  }
+  return { result: true };
 };
 
 // TODO: value를 전부 받아와서 input validation을 수행할 함수 작성
+
+export const inputValidation = (values: Array<ICheckLengthParams>) => {};
