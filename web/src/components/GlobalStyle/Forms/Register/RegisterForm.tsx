@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import * as S from './styled';
-import * as LS from '../Login/styled';
 import { useMutation } from '@apollo/react-hooks';
 import { gql, DocumentNode } from 'apollo-boost';
-import { checkLength, CHECK_TYPE } from '~/utils/validator';
+import * as S from './styled';
+import * as LS from '../Login/styled';
+import { REGISTER_FIELDS } from '../../../../@types/validator-field-names';
+import { inputValidation, ICheckParams } from '../../../../utils/validator';
+import { ERROR } from '../../../../utils/error/constant';
+import { ErrorField } from '../../../../utils/error/error-field';
 
 interface IRegisterForm {
   id: string;
@@ -37,13 +40,26 @@ const SIGN_UP: DocumentNode = gql`
 const pwCondition = ({ pw, pwConfirm }): boolean =>
   pw === pwConfirm && pw !== '' && pwConfirm !== '';
 
-const registerValidate = ({ id, pw, pwConfirm, name }: IRegisterForm): boolean => {
-  return (
-    pwCondition({ pw, pwConfirm }) &&
-    checkLength({ type: CHECK_TYPE.ID, val: id }) &&
-    checkLength({ type: CHECK_TYPE.PW, val: pw }) &&
-    checkLength({ type: CHECK_TYPE.NAME, val: name })
-  );
+const registerValidate = ({ id, pw, pwConfirm, name }: IRegisterForm, setErrorMsg) => {
+  const vals: ICheckParams[] = [];
+  vals.push({ type: REGISTER_FIELDS.ID, val: id });
+  vals.push({ type: REGISTER_FIELDS.PW, val: pw });
+  vals.push({ type: REGISTER_FIELDS.NAME, val: name });
+  const validationResult = inputValidation(vals).filter(({ error }) => error !== null);
+  if (!pwCondition({ pw, pwConfirm })) {
+    validationResult.push({
+      error: new ErrorField('pwConfirm', pwConfirm, ERROR.REGISTER.EQUAL['pwConfirm']),
+    });
+  }
+  if (validationResult.length) {
+    const resultObj = {};
+    validationResult.forEach(({ error }) => (resultObj[error.field] = error.reason));
+    setErrorMsg({ ...resultObj });
+    return false;
+  } else {
+    setErrorMsg({ ...init });
+    return true;
+  }
 };
 
 export const RegisterForm: React.FC = () => {
@@ -54,7 +70,7 @@ export const RegisterForm: React.FC = () => {
   const handleInputChange = ({ target: { id, value } }): void => setInfo({ ...info, [id]: value });
   const handleSubmit = (): void => {
     const { id, name, pw, pwConfirm }: IRegisterForm = info;
-    if (registerValidate({ id, pw, pwConfirm, name })) {
+    if (registerValidate({ id, pw, pwConfirm, name }, setErrorMsg)) {
       console.log('validation 통과');
       signUp({ variables: { id, pw, name } })
         .then(res => {

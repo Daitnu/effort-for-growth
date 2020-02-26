@@ -24,30 +24,30 @@ const validate = {
   },
 };
 
-export interface ICheckLengthParams {
+export interface ICheckParams {
   type: string;
   val: string;
 }
 
 interface IValidationResult {
-  result: boolean;
-  error?: ErrorField;
+  error: ErrorField;
 }
 
-export const checkFieldLength = ({ type, val }: ICheckLengthParams): IValidationResult => {
+export const checkFieldLength = ({ type, val }: ICheckParams): IValidationResult => {
   const MIN_CHECK = validate[type].min <= val.length;
-  if (!MIN_CHECK) {
-    return { result: false, error: new ErrorField(type, val, ERROR.REGISTER.LENGTH[type]) };
-  }
   const MAX_CHECK = validate[type].max >= val.length;
-  if (!MAX_CHECK) {
-    return { result: false, error: new ErrorField(type, val, ERROR.REGISTER.LENGTH[type]) };
+
+  if (!MIN_CHECK) {
+    return { error: new ErrorField(type, val, ERROR.REGISTER.LENGTH[type]) };
   }
-  return { result: true };
+  if (!MAX_CHECK) {
+    return { error: new ErrorField(type, val, ERROR.REGISTER.LENGTH[type]) };
+  }
+  return { error: null };
 };
 
-export const inputValidation = (values: Array<ICheckLengthParams>) => {
-  const validateResult: IValidationResult[] = values.map(({ type, val }) =>
+export const inputValidation = (vals: ICheckParams[]): IValidationResult[] => {
+  const validateResult: IValidationResult[] = vals.map(({ type, val }) =>
     checkFieldLength({ type, val }),
   );
   return validateResult;
