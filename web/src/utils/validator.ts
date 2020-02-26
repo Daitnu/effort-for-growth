@@ -28,9 +28,9 @@ export const CHECK_TYPE = {
   NAME: 'name',
 };
 
-export const checkLength = (params: ICheckLengthParams): boolean => {
-  const MIN_CHECK = validate[params.type].min <= params.val.length;
-  const MAX_CHECK = validate[params.type].max >= params.val.length;
+export const checkLength = ({ type, val }: ICheckLengthParams): boolean => {
+  const MIN_CHECK = validate[type].min <= val.length;
+  const MAX_CHECK = validate[type].max >= val.length;
   const result: boolean = MIN_CHECK && MAX_CHECK;
   return result;
 };
