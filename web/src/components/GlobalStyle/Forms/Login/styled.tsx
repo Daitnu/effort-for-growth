@@ -46,12 +46,12 @@ export const FormItemWithIcon = styled(GS.FlexJustifyAlignCenter)`
   border: 1px solid ${color.border.common};
   border-radius: ${border.radius.common};
   background-color: white;
+  overflow: hidden;
 `;
 
 export const FormInput = styled.input`
   width: 100%;
   height: 50px;
-  border-radius: ${border.radius.common};
   border: none;
   outline: none;
   padding: 0 10px 0 10px;
