@@ -56,10 +56,10 @@ export const confirmValidation = (arr: ICheckParams[]): IValidationResult => {
     return; // 개발자의 mistake >W<
   }
 
-  if (arr[0].val !== arr[1].val) {
-    return { error: new ErrorField(arr[1].type, arr[1].val, ERROR.REGISTER.EQUAL[arr[1].type]) };
+  if (arr[0].val === arr[1].val && arr[0].val !== '' && arr[1].val !== '') {
+    return { error: null };
   }
-  return { error: null };
+  return { error: new ErrorField(arr[1].type, arr[1].val, ERROR.REGISTER.EQUAL[arr[1].type]) };
 };
 
 export const inputValidation = (vals: ICheckParams[]): IValidationResult[] => {
