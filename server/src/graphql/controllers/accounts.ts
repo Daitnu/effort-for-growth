@@ -1,9 +1,9 @@
-import { ILogin, ISignUp, IResponseSignup } from "../@types/account";
+import { ILogin, ISignUp, IResponseSignup } from "../../@types/account";
 import * as accountService from "../services/account";
 import {
   checkLoginParams,
   checkSignUpParams
-} from "../libraries/validator/accounts";
+} from "../../libraries/validator/accounts";
 
 const login = async (_, { id, pw }: ILogin, { usage }): Promise<ILogin> => {
   console.log(usage);

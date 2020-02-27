@@ -1,9 +1,9 @@
 import bcrypt from "bcryptjs";
 import { getRepository } from "typeorm";
-import { User } from "../entity";
-import { ILogin, ISignUp, IResponseSignup } from "../@types/account";
+import { User } from "../../entity";
+import { ILogin, ISignUp, IResponseSignup } from "../../@types/account";
 import { ValidationError } from "apollo-server";
-import { ERROR } from "../libraries/exception/constant";
+import { ERROR } from "../../libraries/exception/constant";
 
 const userRepo = getRepository(User);
 

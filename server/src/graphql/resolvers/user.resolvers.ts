@@ -1,4 +1,4 @@
-import * as ctrl from "../../controllers";
+import * as ctrl from "../controllers";
 import { Iresolvers } from "../../@types/resolvers";
 
 const users = [
