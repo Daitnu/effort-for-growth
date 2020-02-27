@@ -59,10 +59,9 @@ const registerValidate = ({ id, pw, pwConfirm, name }: IRegisterForm, setErrorMs
     validationResult.forEach(({ error }) => (resultObj[error.field] = error.reason));
     setErrorMsg({ ...resultObj });
     return false;
-  } else {
-    setErrorMsg({ ...init });
-    return true;
   }
+  setErrorMsg({ ...init });
+  return true;
 };
 
 export const RegisterForm: React.FC = () => {
