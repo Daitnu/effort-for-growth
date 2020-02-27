@@ -20,7 +20,10 @@ const startServer = async () => {
     typeDefs,
     resolvers,
     formatError,
-    debug: isNotProductionMode
+    debug: isNotProductionMode,
+    context: {
+      usage: "이렇게 사용하면 돕니다,"
+    }
   });
   console.log("graphql server start");
 
