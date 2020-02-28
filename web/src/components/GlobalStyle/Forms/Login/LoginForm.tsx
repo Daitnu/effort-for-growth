@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/react-hooks';
 import { gql, DocumentNode } from 'apollo-boost';
 import * as S from './styled';
-import * as GS from '../../../GlobalStyle';
+import * as GS from '~/components/GlobalStyle';
 import { KEY_CODE } from '~/constants';
 
 interface IUser {

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import * as GS from '../../../GlobalStyle';
+import * as GS from '~/components/GlobalStyle';
 import userIcon from 'Assets/user.png';
 import passwordIcon from 'Assets/key.png';
 import facebookIcon from 'Assets/facebook.png';

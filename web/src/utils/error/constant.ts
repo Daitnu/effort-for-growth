@@ -1,4 +1,4 @@
-import { REGISTER_FIELDS } from '../../@types/validator-field-names';
+import { REGISTER_FIELDS } from '~/@types/validator-field-names';
 
 export const ERROR = {
   REGISTER: {
