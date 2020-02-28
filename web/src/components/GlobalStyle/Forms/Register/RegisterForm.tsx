@@ -73,6 +73,7 @@ export const RegisterForm: React.FC = () => {
   const handleInputChange = ({ target: { id, value } }): void => setInfo({ ...info, [id]: value });
   const handleSubmit = (): void => {
     const { id, name, pw, pwConfirm }: IRegisterForm = info;
+    console.log(errorMsg);
     if (registerValidate({ id, pw, pwConfirm, name }, setErrorMsg)) {
       console.log('validation 통과');
       signUp({ variables: { id, pw, name } })
@@ -87,7 +88,7 @@ export const RegisterForm: React.FC = () => {
 
   return (
     <div>
-      <LS.FormItemWithIcon>
+      <LS.FormItemWithIcon isError={errorMsg.id}>
         <LS.IconWrapper>
           <LS.UserIcon />
         </LS.IconWrapper>
@@ -101,7 +102,7 @@ export const RegisterForm: React.FC = () => {
         />
       </LS.FormItemWithIcon>
       <S.ErrorMsg>{errorMsg.id}</S.ErrorMsg>
-      <LS.FormItemWithIcon>
+      <LS.FormItemWithIcon isError={errorMsg.name}>
         <LS.IconWrapper>
           <S.UserNameIcon />
         </LS.IconWrapper>
@@ -115,7 +116,7 @@ export const RegisterForm: React.FC = () => {
         />
       </LS.FormItemWithIcon>
       <S.ErrorMsg>{errorMsg.name}</S.ErrorMsg>
-      <LS.FormItemWithIcon>
+      <LS.FormItemWithIcon isError={errorMsg.pw}>
         <LS.IconWrapper>
           <LS.PasswordIcon />
         </LS.IconWrapper>
@@ -129,7 +130,7 @@ export const RegisterForm: React.FC = () => {
         />
       </LS.FormItemWithIcon>
       <S.ErrorMsg>{errorMsg.pw}</S.ErrorMsg>
-      <LS.FormItemWithIcon>
+      <LS.FormItemWithIcon isError={errorMsg.pwConfirm}>
         <LS.IconWrapper>
           <LS.PasswordIcon />
         </LS.IconWrapper>

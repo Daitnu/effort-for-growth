@@ -43,7 +43,7 @@ export const FormItemWithIcon = styled(GS.FlexJustifyAlignCenter)`
   margin: 10px 0 10px 0;
   width: 300px;
   height: 50px;
-  border: 2px solid ${color.border.common};
+  border: 2px solid ${props => (props.isError ? 'red' : color.border.common)};
   border-radius: ${border.radius.common};
   background-color: white;
   overflow: hidden;
