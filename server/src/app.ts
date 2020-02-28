@@ -20,10 +20,9 @@ const startServer = async () => {
     typeDefs,
     resolvers,
     formatError,
-    debug: isNotProductionMode,
-    context: {
-      usage: "이렇게 사용하면 돕니다,"
-    }
+    debug: isNotProductionMode
+    // https://www.daleseo.com/graphql-apollo-server-auth/ GraphQL 사용자 인증 Reference
+    // TODO: context를 활용한 사용자 인증
   });
   console.log("graphql server start");
 
