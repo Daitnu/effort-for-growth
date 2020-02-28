@@ -100,7 +100,7 @@ export const RegisterForm: React.FC = () => {
           onChange={handleInputChange}
         />
       </LS.FormItemWithIcon>
-      {errorMsg.id}
+      <S.ErrorMsg>{errorMsg.id}</S.ErrorMsg>
       <LS.FormItemWithIcon>
         <LS.IconWrapper>
           <S.UserNameIcon />
@@ -114,7 +114,7 @@ export const RegisterForm: React.FC = () => {
           onChange={handleInputChange}
         />
       </LS.FormItemWithIcon>
-      {errorMsg.name}
+      <S.ErrorMsg>{errorMsg.name}</S.ErrorMsg>
       <LS.FormItemWithIcon>
         <LS.IconWrapper>
           <LS.PasswordIcon />
@@ -128,7 +128,7 @@ export const RegisterForm: React.FC = () => {
           onChange={handleInputChange}
         />
       </LS.FormItemWithIcon>
-      {errorMsg.pw}
+      <S.ErrorMsg>{errorMsg.pw}</S.ErrorMsg>
       <LS.FormItemWithIcon>
         <LS.IconWrapper>
           <LS.PasswordIcon />
@@ -142,7 +142,7 @@ export const RegisterForm: React.FC = () => {
           onChange={handleInputChange}
         />
       </LS.FormItemWithIcon>
-      {errorMsg.pwConfirm}
+      <S.ErrorMsg>{errorMsg.pwConfirm}</S.ErrorMsg>
       <S.RegisterButton onClick={handleSubmit}>회원가입</S.RegisterButton>
       <Link to="login">
         <S.RegisterButton>로그인하러 가기</S.RegisterButton>

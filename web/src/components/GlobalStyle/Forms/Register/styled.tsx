@@ -11,3 +11,8 @@ export const RegisterButton = styled(LS.LoginButton)`
 export const UserNameIcon = styled(GS.IconStyle)`
   background-image: url(${nameIcon});
 `;
+
+export const ErrorMsg = styled.div`
+  color: red;
+  font-size: 0.8rem;
+`;
