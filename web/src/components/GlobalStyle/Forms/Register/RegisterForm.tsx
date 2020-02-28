@@ -68,24 +68,30 @@ const registerValidate = ({ id, pw, pwConfirm, name }: IRegisterForm, setErrorMs
 };
 
 export const RegisterForm: React.FC = () => {
-  const [info, setInfo] = useState<IRegisterForm>(initialState);
+  const [userValues, setUserValues] = useState<IRegisterForm>(initialState);
   const [errorMsg, setErrorMsg] = useState<IRegisterForm>(initialState);
   const [signUp] = useMutation<IUser>(SIGN_UP);
 
-  const handleInputChange = ({ target: { id, value } }): void => setInfo({ ...info, [id]: value });
+  const handleInputChange = ({ target: { id, value } }): void => {
+    setUserValues({
+      ...userValues,
+      [id]: value,
+    });
+  };
+
   const handleSubmit = (): void => {
-    const { id, name, pw, pwConfirm }: IRegisterForm = info;
+    const { id, name, pw, pwConfirm }: IRegisterForm = userValues;
     console.log(errorMsg);
-    if (registerValidate({ id, pw, pwConfirm, name }, setErrorMsg)) {
-      console.log('validation 통과');
-      signUp({ variables: { id, pw, name } })
-        .then(res => {
-          console.log(res);
-        })
-        .catch(err => {
-          console.log(err.graphQLErrors);
-        });
-    }
+    if (!registerValidate({ id, pw, pwConfirm, name }, setErrorMsg)) return;
+
+    console.log('validation 통과');
+    signUp({ variables: { id, pw, name } })
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => {
+        console.log(err.graphQLErrors);
+      });
   };
 
   return (
