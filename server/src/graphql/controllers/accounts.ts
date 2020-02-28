@@ -6,7 +6,6 @@ import {
 } from "../../libraries/validator/accounts";
 
 const login = async (_, { id, pw }: ILogin): Promise<ILogin> => {
-  console.log(usage);
   checkLoginParams({ id, pw });
   const token = await accountService.login({ id, pw });
   return token;
