@@ -79,19 +79,15 @@ export const RegisterForm: React.FC = () => {
     });
   };
 
-  const handleSubmit = (): void => {
+  const handleSubmit = async (): Promise<void> => {
     const { id, name, pw, pwConfirm }: IRegisterForm = userValues;
-    console.log(errorMsg);
     if (!registerValidate({ id, pw, pwConfirm, name }, setErrorMsg)) return;
-
-    console.log('validation 통과');
-    signUp({ variables: { id, pw, name } })
-      .then(res => {
-        console.log(res);
-      })
-      .catch(err => {
-        console.log(err.graphQLErrors);
-      });
+    try {
+      const res = await signUp({ variables: { id, pw, name } });
+      console.log(res);
+    } catch (err) {
+      console.log(err.graphQLErrors);
+    }
   };
 
   return (
