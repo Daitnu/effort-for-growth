@@ -1,4 +1,4 @@
 export * from './Home';
 export * from './Error';
-export * from './Login';
+export * from './login';
 export * from './register';
