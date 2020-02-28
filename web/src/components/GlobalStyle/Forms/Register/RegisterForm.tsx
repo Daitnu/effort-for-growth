@@ -21,7 +21,7 @@ interface IUser {
   name: string;
 }
 
-const init: IRegisterForm = {
+const initialState: IRegisterForm = {
   id: '',
   name: '',
   pw: '',
@@ -63,13 +63,13 @@ const registerValidate = ({ id, pw, pwConfirm, name }: IRegisterForm, setErrorMs
     setErrorMsg({ ...resultObj });
     return false;
   }
-  setErrorMsg({ ...init });
+  setErrorMsg({ ...initialState });
   return true;
 };
 
 export const RegisterForm: React.FC = () => {
-  const [info, setInfo] = useState<IRegisterForm>(init);
-  const [errorMsg, setErrorMsg] = useState<IRegisterForm>(init);
+  const [info, setInfo] = useState<IRegisterForm>(initialState);
+  const [errorMsg, setErrorMsg] = useState<IRegisterForm>(initialState);
   const [signUp] = useMutation<IUser>(SIGN_UP);
 
   const handleInputChange = ({ target: { id, value } }): void => setInfo({ ...info, [id]: value });
