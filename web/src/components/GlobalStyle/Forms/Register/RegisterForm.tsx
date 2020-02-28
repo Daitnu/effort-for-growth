@@ -4,10 +4,10 @@ import { useMutation } from '@apollo/react-hooks';
 import { gql, DocumentNode } from 'apollo-boost';
 import * as S from './styled';
 import * as LS from '../Login/styled';
-import { REGISTER_FIELDS } from '../../../../@types/validator-field-names';
-import { inputValidation, ICheckParams } from '../../../../utils/validator';
-import { ERROR } from '../../../../utils/error/constant';
-import { ErrorField } from '../../../../utils/error/error-field';
+import { REGISTER_FIELDS } from '~/@types/validator-field-names';
+import { inputValidation, ICheckParams } from '~/utils/validator';
+import { ERROR } from '~/utils/error/constant';
+import { ErrorField } from '~/utils/error/error-field';
 
 interface IRegisterForm {
   id: string;
