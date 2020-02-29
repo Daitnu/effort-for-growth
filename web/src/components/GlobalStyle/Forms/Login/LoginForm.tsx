@@ -43,19 +43,18 @@ export const LoginForm: React.FC = () => {
     handleSubmitClick();
   };
 
-  const handleSubmitClick = (): void => {
+  const handleSubmitClick = async (): Promise<void> => {
     const { id, pw } = user;
     console.log(user);
     console.log('submit click');
-    login({ variables: { id, pw } })
-      .then(res => {
-        console.log(res);
-        setErrorMessage({ message: '' });
-      })
-      .catch(err => {
-        console.log(err.graphQLErrors);
-        setErrorMessage({ message: err.graphQLErrors[0].message });
-      });
+    try {
+      const res = await login({ variables: { id, pw } });
+      console.log(res);
+      setErrorMessage({ message: '' });
+    } catch (e) {
+      console.log(e.graphQLErrors);
+      setErrorMessage({ message: e.graphQLErrors[0].message });
+    }
   };
 
   return (
