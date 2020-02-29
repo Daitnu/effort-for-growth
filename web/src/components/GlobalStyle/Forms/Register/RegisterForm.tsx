@@ -37,8 +37,8 @@ const SIGN_UP: DocumentNode = gql`
   }
 `;
 
-const checkPwCondition = ({ pw, pwConfirm }): boolean => {
-  if (pw === '' || pwConfirm === '') return false;
+const checkPwConfirmCondition = ({ pw, pwConfirm }): boolean => {
+  if (pwConfirm === '') return false;
   return pw === pwConfirm;
 };
 
@@ -52,7 +52,7 @@ const registerValidate = ({ id, pw, pwConfirm, name }: IRegisterForm, setErrorMs
   // error가 null일 경우 제외하라는 코드를 inputValidation함수 내에 쓰면 배열에 undefined가 들어가게됨
   // TODO: 원인 찾기
 
-  if (!checkPwCondition({ pw, pwConfirm })) {
+  if (!checkPwConfirmCondition({ pw, pwConfirm })) {
     validationResult.push({
       error: new ErrorField(PW_CONFIRM, pwConfirm, ERROR.REGISTER.EQUAL[PW_CONFIRM]),
     });
