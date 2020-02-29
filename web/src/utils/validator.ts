@@ -34,7 +34,7 @@ interface IValidationResult {
 }
 
 export const checkFieldLength = ({ fieldName, val }: ICheckParams): IValidationResult => {
-  const MIN_CHECK = validate[fieldName].min <= val.length;
+  const MIN_CHECK = validate[fieldName].min <= val.length || val !== '';
   const MAX_CHECK = validate[fieldName].max >= val.length;
 
   if (!MIN_CHECK) {
