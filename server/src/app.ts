@@ -22,7 +22,7 @@ const startServer = async () => {
     formatError,
     debug: isNotProductionMode
     // https://www.daleseo.com/graphql-apollo-server-auth/ GraphQL 사용자 인증 Reference
-    // TODO: context를 활용한 사용자 인증
+    // TODO: context를 활용한 사용자 인증 (JWT쓸거에유)
   });
   console.log("graphql server start");
 
