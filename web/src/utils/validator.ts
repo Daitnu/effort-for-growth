@@ -46,24 +46,6 @@ export const checkFieldLength = ({ fieldName, val }: ICheckParams): IValidationR
   return { error: null };
 };
 
-/**
- * @param arr ICheckParams[] - length must be 2
- * @param arr[0] { fieldName: string, val: string } - not confirm field. ex) pw
- * @param arr[1] { fieldName: string, val: string } - confirm field. ex) pwConfirm
- */
-export const confirmValidation = (arr: ICheckParams[]): IValidationResult => {
-  if (arr.length !== 2) {
-    return; // 개발자의 mistake >W<
-  }
-
-  if (arr[0].val === arr[1].val && arr[0].val !== '' && arr[1].val !== '') {
-    return { error: null };
-  }
-  return {
-    error: new ErrorField(arr[1].fieldName, arr[1].val, ERROR.REGISTER.EQUAL[arr[1].fieldName]),
-  };
-};
-
 export const inputValidation = (vals: ICheckParams[]): IValidationResult[] => {
   const validateResult: IValidationResult[] = vals.map(({ fieldName, val }) =>
     checkFieldLength({ fieldName, val }),
