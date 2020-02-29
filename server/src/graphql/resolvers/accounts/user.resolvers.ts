@@ -1,5 +1,5 @@
-import * as ctrl from "../controllers";
-import { Iresolvers } from "../../@types/resolvers";
+import * as accountCtrl from "./controller";
+import { Iresolvers } from "../../../@types/resolvers";
 
 const users = [
   {
@@ -25,8 +25,8 @@ const resolvers: Iresolvers = {
     users: () => users
   },
   Mutation: {
-    login: ctrl.Accounts.login,
-    signUp: ctrl.Accounts.signUp
+    login: accountCtrl.login,
+    signUp: accountCtrl.signUp
   }
 };
 
