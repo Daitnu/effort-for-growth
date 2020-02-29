@@ -10,6 +10,18 @@
   },
   "keywords": [],
   "author": "jonghwajoa",
+  "contributors": [
+    {
+      "name": "sjh2428",
+      "email": "tjdwogh45@gmail.com",
+      "url": "https://github.com/sjh2428"
+    },
+    {
+      "name": "jonghwajoa",
+      "email": "jonghwa0710@gmail.com",
+      "url": "https://github.com/jonghwajoa"
+    }
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Daitnu/effort-for-growth/issues"
